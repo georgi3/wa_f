@@ -1,0 +1,260 @@
+import React, { useState, useEffect } from 'react';
+import {Modal, Form, Button, Alert, Container} from 'react-bootstrap';
+import {useAuth} from "../context/AuthContext";
+import {useLocation} from "react-router-dom";
+import NotAuthenticatedPrompt from "./NotAuthenticatedPromt";
+import {apiCall} from "../utils/apiUtils";
+
+function VolunteerNotice(){
+    return (
+        <Container className={"bg-primary-subtle p-5"}>
+            <h2 className={"text-secondary fw-bold text-center"}>Thank You for Applying:</h2>
+            <Container className={"d-flex"}>
+                <p className={"lead text-dark"} >
+                    Thank you for your interest in volunteering for our event! Your willingness to help is greatly appreciated. Once your application is approved, you'll receive a confirmation email from us. We look forward to having you on board!
+                </p>
+            </Container>
+            <h2 className={"text-secondary text-muted fs-4 fw-light text-center"}>Cancellation Policy:</h2>
+            <Container className={"d-flex"}>
+                <p className={"text-dark text-muted fs-6"}>
+                   If you need to cancel your volunteering commitment, please provide us with at least a three-day notice. This helps us ensure the smooth planning and execution of the event. Your understanding and cooperation are highly appreciated
+                </p>
+            </Container>
+        </Container>
+    )
+}
+
+function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventId }) {
+    const { user, updateUser } = useAuth();
+    const [fullName, setFullName] = useState(
+        (user?.firstName) ? (user.firstName + " " + user.lastName) : ''
+    );
+    const [email, setEmail] = useState(user?.email || '');
+    const [phone, setPhone] = useState(user?.phone || '');
+    const [organization, setOrganization] = useState(user?.organization || '');
+    const [address, setAddress] = useState(user?.address || '');
+    const [carType, setCarType] = useState(user?.carType || '');
+    const [zipCode, setZipCode] = useState(
+        (user?.zipCode) ? (`${user?.zipCode.slice(0,3)} ${user?.zipCode.slice(3)}`) : '');
+    const [isApplicationSubmitted, setApplicationSubmitted] = useState(false);
+    const [phoneError, setPhoneError] = useState('');
+    const [addressError, setAddressError] = useState('');
+    const [zipCodeError, setZipCodeError] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [errorCarType, setCarTypeError] = useState('');
+    const location = useLocation();
+    const positionName = positionNamePlural?.slice(0, -1);
+    useEffect(() => {
+        setPhone(user?.phone || '');
+        setOrganization(user?.organization || '');
+        setAddress(user?.address || '');
+        setCarType(user?.carType || '');
+        setZipCode(user?.zipCode ? `${user?.zipCode.slice(0,3)} ${user?.zipCode.slice(3)}` : '');
+    }, [user]);
+    useEffect(() => {
+        if(positionName === 'Cook' && !address) {
+            // If position is Cooks, address becomes mandatory
+            setAddress(''); // Resetting
+        }
+    }, [positionName]);
+    useEffect(() => {
+        if(positionName === 'Cook' && !zipCode) {
+            setZipCode(''); // Resetting
+        }
+    }, [positionName]);
+
+    const validatePhone = () => {
+        const phoneRegex = /^[0-9-. ]{1,12}$/;
+        if (!phone.match(phoneRegex)) {
+            setPhoneError('Invalid phone format. Max length is 12 and only digits or standard separators allowed.');
+            return false;
+        }
+        setPhoneError('');
+        return true;
+    };
+    const validateCarType = () => {
+        if (positionName === 'Driver' && (carType === "")) {
+            setCarTypeError('Please specify your car type!');
+            return false;
+        }
+        setCarTypeError('');
+        return true;
+    };
+
+    const validateAddress = () => {
+        const addressRegex =  /^\d+\s[A-Za-z\s,-]+[\s-][A-Za-z\s,-]+/;
+
+        if (positionName === 'Cook' && !addressRegex.test(address)) {
+            setAddressError('Invalid address format. Expected format: "123 St Springfield"');
+            return false;
+        }
+        setAddressError('');
+        return true;
+    };
+
+    const validateZipCode = () => {
+        const zipCodeRegex = /^[A-Za-z0-9]{3} [A-Za-z0-9]{3}$/;
+        if (positionName === 'Cook' && !zipCode.match(zipCodeRegex)) {
+            setZipCodeError('Invalid postal code. Format should be XXX XXX.');
+            return false;
+        }
+        setZipCodeError('');
+        return true;
+    };
+
+    const handleSubmit = async () => {
+        if (!validatePhone() || !validateAddress() || !validateZipCode() || !validateCarType()) {
+            return;
+        }
+        try {
+            await apiCall('/api/users/apply', 'POST', {
+                'Authorization': `Bearer  ${user?.token}`
+            }, {
+                event_id: eventId,
+                user_id: user.id,
+                phone: phone,
+                organization: organization,
+                address: address,
+                car_type: carType,
+                zip_code: zipCode,
+                vol_position: positionName
+            });
+            setApplicationSubmitted(true);
+            updateUser({
+                phone: phone,
+                organization: organization,
+                address: address,
+                carType: carType,
+                zipCode: zipCode
+            });
+        } catch (error) {
+            console.error(error.message || error);
+            setErrorMessage(error.message || 'Unknown error');
+        }
+    };
+    if (isApplicationSubmitted) {
+        return (
+            <Modal show={isOpen} onHide={onClose} centered>
+                <VolunteerNotice />
+            </Modal>
+        );
+    }
+    if (!user) {
+        return (
+            <Modal show={isOpen} onHide={onClose} centered>
+                <NotAuthenticatedPrompt state={{from: `${location.pathname}`}} prompt={"To volunteer for this event, please sign up first. We promise it's a quick process!"}  />
+            </Modal>
+        );
+    }
+
+    return (
+        <Modal show={isOpen} onHide={onClose} centered>
+            <Modal.Header closeButton>
+                <Modal.Title>Volunteer Application</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <Form>
+                    <Form.Group>
+                        <Form.Label>Full Name</Form.Label>
+                        <Form.Control type="text" value={fullName} readOnly />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control type="text" value={email} readOnly />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Volunteer Responsibility</Form.Label>
+                        <Form.Control type="text" value={positionName} readOnly />
+                    </Form.Group>
+
+                    <Form.Group>
+                        <Form.Label>Phone</Form.Label>
+                        <Form.Control
+                            type="tel"
+                            value={phone}
+                            onChange={e => {
+                                setPhone(e.target.value);
+                                validatePhone();
+                            }}
+                            isInvalid={!!phoneError}
+                            required/>
+                        <Form.Control.Feedback type="invalid">{phoneError}</Form.Control.Feedback>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Organization</Form.Label>
+                        <Form.Control
+                            type="text"
+                            value={organization}
+                            placeholder={"Optional"}
+                            onChange={e => setOrganization(e.target.value)}
+                        />
+                    </Form.Group>
+                    {positionName === "Driver" ? (
+                        <Form.Group>
+                            <Form.Label>Car Type</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={carType}
+                                onChange={e => {
+                                    setCarType(e.target.value);
+                                    validateCarType();
+                                }}
+                                isInvalid={!!errorCarType}
+                                required/>
+                            <Form.Control.Feedback type="invalid">{errorCarType}</Form.Control.Feedback>
+                        </Form.Group>
+                    ) : null
+                    }
+                    {positionName === "Cook" ? (
+                        <>
+                        <Form.Group>
+                            <Form.Label>Address</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={address}
+                                onChange={e => {
+                                    setAddress(e.target.value);
+                                    validateAddress();
+                                }}
+                                isInvalid={!!addressError}
+                                required/>
+                            <Form.Control.Feedback type="invalid">{addressError}</Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Postal Code</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={zipCode}
+                                onChange={e => {
+                                    setZipCode(e.target.value);
+                                    validateZipCode();
+                                }}
+                                isInvalid={!!zipCodeError}
+                                required/>
+                            <Form.Control.Feedback type="invalid">{zipCodeError}</Form.Control.Feedback>
+                        </Form.Group>
+                        </>
+                        ) : null
+                    }
+                </Form>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button className="btn btn-outline-light text-danger" onClick={onClose}>
+                    Close
+                </Button>
+                <Button className="btn-outline-light" onClick={handleSubmit}>
+                    Apply
+                </Button>
+                {errorMessage &&
+                    <div className="mt-3 w-100">
+                        <Alert variant="danger">
+                            {errorMessage}
+                        </Alert>
+                    </div>}
+            </Modal.Footer>
+
+        </Modal>
+    );
+}
+
+export default VolunteerApplicationModal;
