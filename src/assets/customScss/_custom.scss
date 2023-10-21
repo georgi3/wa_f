@@ -1,13 +1,14 @@
-@import "../scss/_variables.scss";
 // scss-docs-start theme-color-variables
-$primary:       #462255 !default; //#462255
-$secondary:     #228B22 !default; //#036010 #069E2D // #228B22
-$success:       $green !default;
-$info:          #711D94FF !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-900 !default;
+$primary: #462255;
+$secondary: #228B22;
+$success: #28a745;
+$info: #711D94FF;
+$warning: #ffc107;
+$danger: #dc3545;
+$gray-100: #f8f9fa;
+$light: #f8f9fa;
+$dark: #212529;
+
 html {
   scroll-behavior: smooth;
 }
@@ -23,21 +24,20 @@ html {
   margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: auto;
-  background: linear-gradient(315deg, rgb(9, 126, 26) 3%, rgb(5, 162, 5) 38%, rgb(8, 122, 24) 68%, rgb(70, 215, 70) 98%);
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;
-  background-attachment: fixed;
+  background: linear-gradient(315deg, rgb(9, 126, 26) 3%, rgb(5, 162, 5) 38%, rgb(8, 122, 24) 68%, rgb(70, 215, 70) 98%) fixed;
 }
 
 @keyframes gradient {
   0% {
-    background-position: 0% 0%;
+    background-position: 0 0;
   }
   50% {
     background-position: 100% 100%;
   }
   100% {
-    background-position: 0% 0%;
+    background-position: 0 0;
   }
 }
 
@@ -93,10 +93,9 @@ html {
   margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: auto;
-  background: linear-gradient(315deg, rgb(205, 136, 234) 3%, rgb(113, 29, 148) 38%, rgb(160, 56, 203) 68%, rgb(120, 11, 166) 98%);
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;
-  background-attachment: fixed;
+  background: linear-gradient(315deg, rgb(205, 136, 234) 3%, rgb(113, 29, 148) 38%, rgb(160, 56, 203) 68%, rgb(120, 11, 166) 98%) fixed;
 }
 
 
@@ -130,7 +129,7 @@ html {
 }
 .nav-tabs .nav-link.active{
   color: black!important;
-  box-shadow: 4px 2px 12px #462255;
+  box-shadow: 4px 2px 12px $primary;
 }
 .event-tabs .nav-link{
   color: white!important;
@@ -177,7 +176,7 @@ html {
   left: -100px;
 }
 .dropdown-item:hover,{
-  background: #711D94FF!important;
+  background: $info!important;
   color: white!important;
 }
 //.dropdown-menu[data-bs-popper] {
@@ -220,13 +219,13 @@ ol, ul, dl {
 }
 
 .activity-item:hover:before {
-  right: 0%;
+  right: 0;
 }
 
 .activity-item-title,
 .activity-item a {
   position: absolute;
-  left: 0px;
+  left: 0;
   margin: 0;
   font-size: 16px;
   opacity: 0;
@@ -243,7 +242,7 @@ ol, ul, dl {
 }
 
 .activity-item:hover .activity-item-title {
-  left: 0px;
+  left: 0;
   opacity: 1;
 }
 
@@ -313,7 +312,7 @@ ol, ul, dl {
 
 // Section Underline
 .border-decor {
-  border-bottom: 2px solid #711D94FF;
+  border-bottom: 2px solid $info;
 }
 .border-decor-light{
   border-bottom: 2px solid #fff;
@@ -346,21 +345,23 @@ ol, ul, dl {
 
 // Slopes
 .top-slope {
-  background: #E2D3A4;
+  //background: #E2D3A4;
+  background: $info;
 }
 .bottom-slope {
-  background: #462255;
+  background: $primary;
 }
 .slope-container svg {
   width: 100%;
   height: 100%;
 }
 .slope-container svg path {
-  fill: #E2D3A4;
+  //fill: #E2D3A4;
+  fill: $info;
 }
 
 .slope-container svg rect {
-  fill: #462255;
+  fill: $primary;
 }
 .slope-container {
   --divider-height: 4rem;
@@ -373,20 +374,21 @@ ol, ul, dl {
   z-index: 1;
 }
 .slope-container1 svg path {
-  fill: #462255;
+  fill: $primary;
 }
 
 .slope-container1 svg rect {
-  fill: #E2D3A4;
+  //fill: #E2D3A4;
+  fill: $info;
 }
 .slope-container-out svg path {
-  fill: #E2D3A4;
+  //fill: #E2D3A4;
+  fill: $info;
 }
 
 .slope-container-out svg rect {
   fill: #fff;
 }
-
 
 // SVG shadows
 .svg-shadow {
@@ -396,7 +398,7 @@ ol, ul, dl {
 
 // Transitioning backgrounds
 .transitioning-background-primary {
-  background: linear-gradient(to right, #550d73, #780ba6);
+  background: linear-gradient(to right, $primary, $info);
   padding: 20px;
   text-align: center;
 }
@@ -407,7 +409,8 @@ ol, ul, dl {
 }
 // Beige bg
 .bg-beige{
-  background: #E2D3A4;
+  //background: #E2D3A4;
+  background: $info;
 }
 
 // Navbar

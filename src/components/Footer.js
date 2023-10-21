@@ -114,7 +114,7 @@ function ContactForm({ user }) {
     }, [user?.email]);
 
     useEffect(() => {
-        setName(`${user?.firstName} ${user?.lastName}`)
+        (user?.firstName ? setName(`${user?.firstName} ${user?.lastName}`) : setName(""))
     }, [user?.firstName, user?.lastName]);
     const handleSubmit =  (e) => {
         const form = e.currentTarget;
