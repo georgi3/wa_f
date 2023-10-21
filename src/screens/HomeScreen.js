@@ -184,7 +184,7 @@ export function HomeScreen() {
                     <OurFocus/>
                 </Container>
                 <Container className={"px-0"} fluid>
-                    <h2 className="text-center text-dark py-2 my-0 mt-4 lead fs-1" style={{backgroundColor: "#E2D3A4"}}>
+                    <h2 className="text-center text-light py-2 my-0 mt-4 lead fs-1 top-slope">
                         Our Partners
                     </h2>
                     <PartnerSection />
@@ -227,9 +227,9 @@ function PartnerSection({}){
                                      style={{WebkitFilter: "grayscale(100%)", "filter": "grayscale(100%)", maxHeight: "300px", maxWidth: "250px"}} alt={"François Bergeron"}/>
                             </Container>
                         </Col>
-                        <Col className={"p-3 text-dark"} sm={12} lg={6}>
+                        <Col className={"p-3 text-light"} sm={12} lg={6}>
                             <h2 className={"fw-light text-lg-start"}><span className={""}>François Bergeron </span> – Directeur général</h2>
-                            <p className={"text-muted fs-5"}>CDC Centre-Sud</p>
+                            <p className={"text-light fs-6"}>CDC Centre-Sud</p>
                             <Container className={"d-flex align-items-center"}>
                                 <p className={"lead fs-4 my-3"}>
                                     "Cet organisme est actuellement un maillon essentiel dans la réponse collective alimentaire que les organismes communautaires construisent face à cette crise."
@@ -252,8 +252,8 @@ function PartnerSection({}){
                             </Container>
                         </Col>
                         <Col className={"p-3"} sm={12} lg={6}>
-                            <h2 className={"fw-light text-lg-start"}><span className={""}>François Bergeron </span> – Directeur général</h2>
-                            <p className={"text-light fs-5"}>CDC Centre-Sud</p>
+                            <h2 className={"fw-light text-lg-start"}><span className={""}>Karina Naim </span> – Directrice Générale</h2>
+                            <p className={"text-light fs-6"}>SPORTIRA 1998</p>
                             <Container className={"d-flex align-items-center"}>
                                 <p className={"lead fs-4 my-3"}>
                                     "Ce projet de cœur est maintenant devenu très grand et comme toute entreprise ou organisme qui croît rapidement, elle fait face à des défis et croissance. Les sans-abris les connaissent et comptent sur eux semaine après semaine. C’est maintenant à notre tour de les soutenir et de leur donner les outils nécessaires pour continuer leur excellent travail. Le potentiel de L’Avenue du Bien-Être est inarrêtable en raison du leadership de Steel et de son entourage. Sportira et moi personnellement allons être là à leurs côtés et on espère que leur travail continue pour aider non seulement nos sans abris mais pour amener un sens du devoir à nos jeunes."
@@ -275,9 +275,9 @@ function PartnerSection({}){
                                 />
                             </Container>
                         </Col>
-                        <Col className={"p-3 text-dark"} sm={12} lg={6}>
-                            <h2 className={"fw-light text-lg-start"}><span className={""}>François Bergeron </span> – Directeur général</h2>
-                            <p className={"text-muted fs-5"}>CDC Centre-Sud</p>
+                        <Col className={"p-3 text-light"} sm={12} lg={6}>
+                            <h2 className={"fw-light text-lg-start"}><span className={""}>Kassandra Gervasi </span> –  Assistant Branch Manager</h2>
+                            <p className={"text-light fs-6"}>RBC</p>
                             <Container className={"d-flex align-items-center"}>
                                 <p className={"lead fs-4 my-3"}>
                                     "Being the community leader for the RBC Van Horne and Darlington branch means finding outstanding organizations who share RBC’s values and turning this common vision into a partnership.
