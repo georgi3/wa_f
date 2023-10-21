@@ -1,7 +1,7 @@
 @import "node_modules/bootstrap/scss/mixins/banner";
 @include bsBanner("");
 
-// Importing custom variables first
+// Importing custom scss
 @import "custom";
 
 // scss-docs-start import-stack
