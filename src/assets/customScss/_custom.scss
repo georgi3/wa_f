@@ -24,9 +24,10 @@ html {
   margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: auto;
+  background: linear-gradient(315deg, rgb(9, 126, 26) 3%, rgb(5, 162, 5) 38%, rgb(8, 122, 24) 68%, rgb(70, 215, 70) 98%);
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;
-  background: linear-gradient(315deg, rgb(9, 126, 26) 3%, rgb(5, 162, 5) 38%, rgb(8, 122, 24) 68%, rgb(70, 215, 70) 98%) fixed;
+  background-attachment: fixed;
 }
 
 @keyframes gradient {
@@ -93,12 +94,11 @@ html {
   margin: auto;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: auto;
+  background: linear-gradient(315deg, rgb(205, 136, 234) 3%, rgb(113, 29, 148) 38%, rgb(160, 56, 203) 68%, rgb(120, 11, 166) 98%);
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;
-  background: linear-gradient(315deg, rgb(205, 136, 234) 3%, rgb(113, 29, 148) 38%, rgb(160, 56, 203) 68%, rgb(120, 11, 166) 98%) fixed;
+  background-attachment: fixed;
 }
-
-
 
 // Customizing Tabs
 .navbar-links{
@@ -146,18 +146,18 @@ html {
   --bs-accordion-btn-focus-box-shadow: none!important;
 }
 @media (prefers-reduced-motion: reduce){
-.accordion-button{
-  transition-delay: 3s!important;
-  transition-duration: 2s!important;
-}
+  .accordion-button{
+    transition-delay: 3s!important;
+    transition-duration: 2s!important;
+  }
 }
 // Square
 //.square {
 //  flex: 0 0 calc(33.33% - 20px); /* Adjust the width as needed */
 //  margin: 10px;
-  //height: 0;
-  //padding-bottom: calc(33.33% - 20px); /* Adjust the height as needed */
-  //background-color: #6bbf59;
+//height: 0;
+//padding-bottom: calc(33.33% - 20px); /* Adjust the height as needed */
+//background-color: #6bbf59;
 //}
 // NavBar
 .nav-item.dropdown:hover .dropdown-menu {
@@ -193,7 +193,7 @@ ol, ul, dl {
   margin-bottom: 0!important;
 }
 
-// Activity 
+// Activity
 .activity-item {
   margin-top: 30px;
 }
