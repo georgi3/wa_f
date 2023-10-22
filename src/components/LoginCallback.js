@@ -27,7 +27,6 @@ export default function LoginCallback() {
         if (token) {
             const returnUrl = sessionStorage.getItem('returnUrl') || '/';
             sessionStorage.removeItem('returnUrl');
-            console.log(returnUrl)
             async function getUserProfile() {
                 try {
                     const data = await fetchUserProfile(token);
