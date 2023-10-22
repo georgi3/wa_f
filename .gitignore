@@ -25,7 +25,7 @@ chrome-user-data
 /coverage
 
 # Production #
-/build
+#/build
 
 # Environment Variables #
 .env.local
