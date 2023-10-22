@@ -107,7 +107,7 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
             return;
         }
         try {
-            await apiCall('/api/users/apply', 'POST', {
+            await apiCall(`${process.env.REACT_APP_API_URL}/api/users/apply`, 'POST', {
                 'Authorization': `Bearer  ${user?.token}`
             }, {
                 event_id: eventId,

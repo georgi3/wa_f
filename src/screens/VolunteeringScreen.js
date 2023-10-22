@@ -12,7 +12,7 @@ import * as PropTypes from "prop-types";
 import {handleLink} from "../utils/navigationUtils";
 
 async function fetchTopVolunteers() {
-    const response = await fetch(`/api/users/top-volunteers`);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/top-volunteers`);
     return await response.json();
 }
 
@@ -75,7 +75,7 @@ function HeroOverlay({backgroundImage}) {
 }
 
 async function fetchEvents() {
-    const response = await fetch(`/api/events/volunteering`);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/events/volunteering`);
     const data = await response.json();
     const currentDate = new Date();
 

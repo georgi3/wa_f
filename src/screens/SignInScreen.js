@@ -20,7 +20,7 @@ export default function SignInScreen(){
     const socialMedias = [
         {
             icon: faGoogle,
-            href: "http://127.0.0.1:8000/accounts/login/google-oauth2/",
+            href: `${process.env.REACT_APP_API_URL}/accounts/login/google-oauth2/`,
             color: "text-danger",
             target: "_self"
         },
@@ -46,7 +46,7 @@ export default function SignInScreen(){
     const handleLogin = async (event) => {
         event.preventDefault();
         try {
-            const data = await apiCall('/api/users/login', 'POST', {}, { 'username': email, 'password': password });
+            const data = await apiCall(`${process.env.REACT_APP_API_URL}/api/users/login`, 'POST', {}, { 'username': email, 'password': password });
             await login(processUserData(data));
             navigate(location.state?.from || '/user-profile');
         } catch (error) {

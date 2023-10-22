@@ -128,7 +128,7 @@ function ContactForm({ user }) {
     const submitForm = async (e) =>{
         e.preventDefault();
         try {
-            const response = await apiCall("/api/contact-form-submission", "POST", {}, {
+            const response = await apiCall(`${process.env.REACT_APP_API_URL}/api/contact-form-submission`, "POST", {}, {
                 email: email,
                 name: name,
                 subject: subject,

@@ -22,7 +22,7 @@ export default function SignUpScreen(){
     const socialMedias = [
         {
             icon: faGoogle,
-            href: "http://127.0.0.1:8000/accounts/login/google-oauth2/",
+            href: `${process.env.REACT_APP_API_URL}/accounts/login/google-oauth2/`,
             color: "text-danger",
             target: "_self"
         },
@@ -51,7 +51,7 @@ export default function SignUpScreen(){
     const handleRegister = async (event) => {
         event.preventDefault();
         try {
-            const data = await apiCall('/api/users/register', 'POST', {}, {
+            const data = await apiCall(`${process.env.REACT_APP_API_URL}/api/users/register`, 'POST', {}, {
                 'first_name': firstName,
                 'last_name': lastName,
                 'email': email,

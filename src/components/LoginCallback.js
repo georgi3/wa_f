@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import {processUserData} from "../utils/apiUtils";
 
 async function fetchUserProfile(accessToken) {
-    const endpoint = '/api/users/profile';
+    const endpoint = `${process.env.REACT_APP_API_URL}/api/users/profile`;
     const headers = { "Authorization": `Bearer ${accessToken}` };
     const response = await fetch(endpoint, { headers });
     return await response.json();

@@ -8,7 +8,7 @@ function RequestPasswordReset() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const response = await fetch('/api/auth/users/reset_password/', {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/users/reset_password/`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email }),

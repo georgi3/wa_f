@@ -17,7 +17,7 @@ function PasswordResetConfirm() {
         }
 
         try {
-            const response = await fetch('/api/auth/users/reset_password_confirm/', {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/users/reset_password_confirm/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

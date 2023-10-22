@@ -51,7 +51,7 @@ const testimonials = [
 ];
 
 async function fetchStaffMembers() {
-    const response = await fetch(`/api/users/staff-members`);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/staff-members`);
     return await response.json();
 }
 export function AboutScreen(){

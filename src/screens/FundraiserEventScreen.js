@@ -6,7 +6,7 @@ import FundraisingFutureEvent from "../components/FundraisingFutureEvent";
 import FundraisingPastEvent from "../components/FundraisingPastEvent";
 
 async function fetchFundraisingEvent({ id }) {
-    const response = await fetch(`/api/events/fundraising/${id}`);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/events/fundraising/${id}`);
     return await response.json();
 }
 

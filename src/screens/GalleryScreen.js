@@ -10,7 +10,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import ImageListGallery from "../components/gallery/ImageListGallery";
 
 async function fetchGalleries() {
-    const response = await fetch(`/api/content/galleries`);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/content/galleries`);
     return await response.json();
 }
 

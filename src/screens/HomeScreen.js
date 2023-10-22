@@ -123,7 +123,7 @@ const partnersListDuplicated = [
 
 
 async function fetchEvents() {
-    const response = await fetch(`/api/events/all`);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/events/all`);
     return await response.json();
 }
 

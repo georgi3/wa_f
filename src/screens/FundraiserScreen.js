@@ -44,30 +44,9 @@ export default function FundraiserScreen() {
         </>
     )
 }
-//
-// async function fetchFundraisingEvents() {
-//     const response = await fetch(`/api/fundraising-events`);
-//     const data = await response.json();
-//     const currentDate = new Date();
-//
-//     // Filter out events with empty imgHero and par1 attributes for past events
-//     const filteredEvents = data.filter((frEvent) => {
-//         const eventDate = new Date(frEvent.datetime);
-//         const isFutureEvent = eventDate >= currentDate;
-//         return !(!isFutureEvent && !frEvent.imgHero && !frEvent.par1);
-//     });
-//
-//     // Sort the filtered events by date in ascending order
-//     filteredEvents.sort((event1, event2) => {
-//         const date1 = new Date(event1.datetime);
-//         const date2 = new Date(event2.datetime);
-//         return date1 - date2;
-//     });
-//     return filteredEvents;
-// }
 
 async function fetchFundraisingEvents() {
-    const response = await fetch(`/api/events/fundraising`);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/events/fundraising`);
     const data = await response.json();
     const currentDate = new Date();
 

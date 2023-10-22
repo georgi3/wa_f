@@ -4,7 +4,7 @@ import {MainLayout} from "../components/MainLayout";
 import VolunteeringFutureEvent from "../components/VolunteeringFutureEvent";
 import VolunteeringPastEvent from "../components/VolunteeringPastEvent";
 async function fetchEvent({ id }) {
-    const response = await fetch(`/api/events/volunteering/${id}`);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/events/volunteering/${id}`);
     return await response.json();
 }
 export default function VolunteeringEventScreen(){

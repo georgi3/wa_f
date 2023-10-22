@@ -10,7 +10,7 @@ import { handleLink } from "../utils/navigationUtils";
 import {format, parseISO} from "date-fns";
 
 async function fetchUserProfile(accessToken, userId = null) {
-    const endpoint = userId ? `/api/users/profile/${userId}` : '/api/users/profile';
+    const endpoint = userId ? `${process.env.REACT_APP_API_URL}/api/users/profile/${userId}` : `${process.env.REACT_APP_API_URL}/api/users/profile`;
     const headers = accessToken ? { "Authorization": `Bearer ${accessToken}` } : {};
     const response = await fetch(endpoint, { headers });
     return await response.json();
@@ -18,12 +18,12 @@ async function fetchUserProfile(accessToken, userId = null) {
 
 async function fetchAssociatedEvents(associatedEvents) {
     const eventIdsString = associatedEvents.join(',');
-    const endpoint = `/api/events/volunteering/filter?event_ids=${eventIdsString}`;
+    const endpoint = `${process.env.REACT_APP_API_URL}/api/events/volunteering/filter?event_ids=${eventIdsString}`;
     const response = await fetch(endpoint);
     return await response.json();
 }
 async function fetchAppliedEvents(accessToken, userId) {
-    const endpoint = `/api/users/profile/applied-events?userId=${userId}`;
+    const endpoint = `${process.env.REACT_APP_API_URL}/api/users/profile/applied-events?userId=${userId}`;
     const headers = {"Authorization": `Bearer ${accessToken}`};
     const response = await fetch(endpoint, { headers });
     return await response.json();
@@ -113,7 +113,8 @@ export default function UserProfileScreen() {
             if (updatedProfilePicture) {
                 formData.append('profile_picture', updatedProfilePicture);
             }
-            const response = await fetch(`/api/users/profile/update`, {
+            console.log(process.env.REACT_APP_API_URL);
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/profile/update`, {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -316,7 +317,7 @@ const AppliedEventsComponent = ({location, user}) => {
         try {
             const formData = new FormData();
             formData.append('applicationId', applicationId);
-            const response = await fetch(`/api/users/withdraw`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/withdraw`, {
                 method: 'POST',
                 body: formData,
                 headers: {
