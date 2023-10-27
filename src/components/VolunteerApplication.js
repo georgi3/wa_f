@@ -49,7 +49,7 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
         setOrganization(user?.organization || '');
         setAddress(user?.address || '');
         setCarType(user?.carType || '');
-        setZipCode(user?.zipCode ? `${user?.zipCode.slice(0,3)} ${user?.zipCode.slice(3)}` : '');
+        setZipCode(user?.zipCode ? `${user?.zipCode}` : '');
     }, [user]);
     useEffect(() => {
         if(positionName === 'Cook' && !address) {
