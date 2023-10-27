@@ -35,7 +35,7 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
     const [address, setAddress] = useState(user?.address || '');
     const [carType, setCarType] = useState(user?.carType || '');
     const [zipCode, setZipCode] = useState(
-        (user?.zipCode) ? (`${user?.zipCode.slice(0,3)} ${user?.zipCode.slice(3)}`) : '');
+        (user?.zipCode) ? (`${user?.zipCode}`) : '');
     const [isApplicationSubmitted, setApplicationSubmitted] = useState(false);
     const [phoneError, setPhoneError] = useState('');
     const [addressError, setAddressError] = useState('');
