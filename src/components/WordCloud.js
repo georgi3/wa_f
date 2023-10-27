@@ -41,6 +41,7 @@ const SimpleCloud = () => (
         width={400}
         height={100}
         rotate={0}
+        padding={3}
         fill={(d, i) => schemeCategory10ScaleOrdinal(i)}
     />
 )

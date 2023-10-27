@@ -1,0 +1,10 @@
+
+.lead.desc {
+    margin: 50px 20%;
+}
+
+@media screen and (max-width: 768px) {
+    .lead.desc {
+        margin: 50px 5%;
+    }
+}

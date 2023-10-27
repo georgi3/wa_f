@@ -37,7 +37,7 @@ function FundraiserCard({ allEvent, isFutureEvent }){
                     <strong>{allEvent?.title}</strong> <br/> <span className={"fs-6"}>Date: {allEvent.datetime ? format(parseISO(allEvent.datetime), 'MMM dd, yyyy') : ''}</span>
                 </Card.Title>
                 <Link onClick={handleLink} to={`/activity/fundraising/${allEvent.id}`}
-                      className={"w-100 btn btn-lg btn-outline-light"}
+                      className={"w-100 btn btn-lg btn-light mt-3"}
                 >
                     See More
                 </Link>
@@ -58,11 +58,11 @@ function VolunteerCard({ allEvent, isFutureEvent }){
                 }} src={allEvent?.event_poster} alt={`${allEvent?.title} Poster`}/>
             </Link>
             <Card.Body>
-                <Card.Title className="" as="h5">
+                <Card.Title className={"my-3"} as="h5">
                     <strong>{allEvent?.title}</strong> <br/> <span className={"fs-6"}>Date: {allEvent.datetime ? format(parseISO(allEvent.datetime), 'MMM dd, yyyy') : ''}</span>
                 </Card.Title>
                 <Link onClick={handleLink} to={`/activity/volunteer/${allEvent.id}`}
-                      className={"w-100 btn btn-lg btn-outline-light"}>
+                      className={"w-100 btn btn-lg btn-light mt-3"}>
                     {
                         isFutureEvent
                             ?

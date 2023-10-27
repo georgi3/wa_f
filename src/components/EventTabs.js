@@ -34,10 +34,10 @@ export function EventTabs({ events }) {
             justify
             onSelect={handleTabChange}
         >
-            <Tab eventKey="upcomingEvents" title="Upcoming Events" >
+            <Tab eventKey="upcomingEvents" title="Upcoming Events" tabClassName={"py-3"}>
                 <EventsCarousel events={upcomingEvents} />
             </Tab>
-            <Tab eventKey="pastEvents" title="Past Events" >
+            <Tab eventKey="pastEvents" title="Past Events" tabClassName={"py-3"}>
                 <EventsCarousel events={pastEvents} />
             </Tab>
         </Tabs>

@@ -1,0 +1,8 @@
+.moving-content {
+    color: white;
+    padding: 50px 0;
+}
+
+.moving-content a img {
+    filter: invert(1) brightness(100) grayscale(100%);
+}

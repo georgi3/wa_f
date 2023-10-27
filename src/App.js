@@ -1,7 +1,7 @@
 import './App.css';
 import {BrowserRouter, Routes, Route, useLocation} from 'react-router-dom';
 import {Container} from "react-bootstrap";
-import {HomeScreen} from "./screens/HomeScreen";
+import {HomeScreen} from "./screens/Home/HomeScreen";
 import {AboutScreen} from "./screens/AboutScreen";
 import {GalleryScreen} from "./screens/GalleryScreen";
 import React, {useEffect} from "react";

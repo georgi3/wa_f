@@ -28,7 +28,7 @@ export default function MyNavbar() {
                 <Navbar.Collapse id="responsive-navbar-nav" >
                     <Nav className="w-100 me-auto">
                         <LinkContainer to="/">
-                            <Nav.Link className="nav-link" onClick={handleLink} to={"/"}><FontAwesomeIcon icon={faHouseChimney}/> Home</Nav.Link>
+                            <Nav.Link className="nav-link mx-3" onClick={handleLink} to={"/"}><FontAwesomeIcon icon={faHouseChimney}/> Home</Nav.Link>
                         </LinkContainer>
                         <NavDropdown onClick={handleLink} title="Get Involved" id="nav-dropdown" renderMenuOnMount={true} className={"my-0"}>
                             <NavDropdown.Item as={Link} to={"/activity/volunteer"} eventKey="4.1" >
@@ -39,13 +39,13 @@ export default function MyNavbar() {
                             </NavDropdown.Item>
                         </NavDropdown>
                         <LinkContainer  onClick={handleLink} to="/about">
-                            <Nav.Link onClick={handleLink} className="nav-link"><FontAwesomeIcon icon={faUsersRectangle}/> About Us</Nav.Link>
+                            <Nav.Link onClick={handleLink} className="nav-link mx-3"><FontAwesomeIcon icon={faUsersRectangle}/> About Us</Nav.Link>
                         </LinkContainer>
                         <LinkContainer to="/press">
-                            <Nav.Link onClick={handleLink} className="nav-link "><FontAwesomeIcon icon={faBookOpen} /> Press</Nav.Link>
+                            <Nav.Link onClick={handleLink} className="nav-link mx-3"><FontAwesomeIcon icon={faBookOpen} /> Press</Nav.Link>
                         </LinkContainer>
                         <LinkContainer  to="" onClick={(e) => { e.preventDefault(); externalRedirect("https://donorbox.org/welfare-avenue"); }}  className={"bg-secondary"}>
-                            <Nav.Link onClick={handleLink} className="nav-link rounded-5 text-light" ><FontAwesomeIcon icon={faHandHoldingDollar} className={"text-light"} /> Donate</Nav.Link>
+                            <Nav.Link onClick={handleLink} className="nav-link rounded-5 text-light px-3 mx-3" ><FontAwesomeIcon icon={faHandHoldingDollar} className={"text-light"} /> Donate</Nav.Link>
                         </LinkContainer>
                     </Nav>
                     {user ? (
