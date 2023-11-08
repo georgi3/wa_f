@@ -21,7 +21,7 @@ import UserProfileScreen from "./screens/UserProfileScreen";
 import { AuthProvider } from "./context/AuthContext";
 import LoginCallback from "./components/LoginCallback";
 import RequestPasswordReset from "./screens/UserAuth/RequestPasswordReset";
-import PasswordResetConfirm from "./screens/UserAuth/PasswordResetConfirm";
+import PasswordResetConfirm from "./components/PasswordResetConfirm";
 import NotFound from "./components/404";
 
 function ScrollToTop() {
