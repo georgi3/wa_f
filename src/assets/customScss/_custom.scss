@@ -175,7 +175,7 @@ html {
 .profile-dropdown .dropdown-menu.dropdown-menu[data-bs-popper] {
   left: -100px;
 }
-.dropdown-item:hover,{
+.dropdown-item:hover {
   background: $info!important;
   color: white!important;
 }
