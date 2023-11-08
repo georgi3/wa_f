@@ -448,3 +448,24 @@ ol, ul, dl {
   object-fit: cover;
 }
 
+.nav-group-right .navbar-links {
+  margin: 0 1rem;
+}
+
+.nav-link {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-group-right {
+    margin-top: 15px;
+  }
+
+  .nav-group-right .navbar-links {
+    margin: 15px 1rem;
+  }
+  
+  .nav-link {
+    margin-top: 15px;
+  }
+}

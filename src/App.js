@@ -6,10 +6,10 @@ import {AboutScreen} from "./screens/AboutScreen";
 import {GalleryScreen} from "./screens/GalleryScreen";
 import React, {useEffect} from "react";
 import VolunteeringEventScreen from "./screens/VolunteeringEventScreen";
-import SignUpScreen from "./screens/SignUpScreen";
-import SignInScreen from "./screens/SignInScreen";
+import SignUpScreen from "./screens/UserAuth/SignUpScreen";
+import SignInScreen from "./screens/UserAuth/SignInScreen";
 import PressScreen from "./screens/PressScreen";
-import DonateScreen from "./screens/DonateScreen";
+// import DonateScreen from "./screens/DonateScreen";
 import VolunteeringScreen from "./screens/VolunteeringScreen";
 import ActivityScreen from "./screens/ActivityScreen";
 import WeeklyVolunteering from "./screens/WeeklyVolunteering";
@@ -20,8 +20,8 @@ import FundraiserEventScreen from "./screens/FundraiserEventScreen";
 import UserProfileScreen from "./screens/UserProfileScreen";
 import { AuthProvider } from "./context/AuthContext";
 import LoginCallback from "./components/LoginCallback";
-import RequestPasswordReset from "./components/RequestPasswordReset";
-import PasswordResetConfirm from "./components/PasswordResetConfirm";
+import RequestPasswordReset from "./screens/UserAuth/RequestPasswordReset";
+import PasswordResetConfirm from "./screens/UserAuth/PasswordResetConfirm";
 import NotFound from "./components/404";
 
 function ScrollToTop() {

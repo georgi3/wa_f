@@ -4,58 +4,56 @@ import {Link} from "react-router-dom";
 import {faHouse} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-import "./HomeScreen.css";
+import MyNavbar from "../components/Navbar";
+import {UncontrolledCarousel} from "../components/UncontrolledCarousel";
+import SimpleCloud from "../components/WordCloud";
+import {EventTabs} from "../components/EventTabs";
+import {OurFocus} from "../components/OurFocus";
+import {Partners} from "../components/Partners";
+import Footer from "../components/Footer";
 
-import MyNavbar from "../../components/Navbar";
-import {UncontrolledCarousel} from "../../components/UncontrolledCarousel";
-import SimpleCloud from "../../components/WordCloud";
-import {EventTabs} from "../../components/EventTabs";
-import {OurFocus} from "../../components/OurFocus";
-import {Partners} from "../../components/Partners/Partners";
-import Footer from "../../components/Footer";
-
-import slide1 from "../../assets/images/home/slide1.jpg";
-import slide2 from "../../assets/images/home/slide2.jpg";
-import slide3 from "../../assets/images/home/slide3.jpg";
-import slide4 from "../../assets/images/home/slide4.png";
-import slide5 from "../../assets/images/home/slide5.jpg";
-import concordia from "../../assets/images/home/parteners/concordia.svg";
-import mcgill from "../../assets/images/home/parteners/mcgill.svg";
-import jAbbott from "../../assets/images/home/parteners/jabbott.svg";
-import ymca from "../../assets/images/home/parteners/YMCA.svg";
-import investQC from "../../assets/images/home/parteners/investQC.svg";
-import quote1 from "../../assets/images/home/quotes/fransua.jpg";
-import quote2 from "../../assets/images/home/quotes/karina.jpeg";
-import quote3 from "../../assets/images/home/quotes/kassandra.jpeg";
+import slide1 from "../assets/images/home/slide1.jpg";
+import slide2 from "../assets/images/home/slide2.jpg";
+import slide3 from "../assets/images/home/slide3.jpg";
+import slide4 from "../assets/images/home/slide4.png";
+import slide5 from "../assets/images/home/slide5.jpg";
+import concordia from "../assets/images/home/parteners/concordia.svg";
+import mcgill from "../assets/images/home/parteners/mcgill.svg";
+import jAbbott from "../assets/images/home/parteners/jabbott.svg";
+import ymca from "../assets/images/home/parteners/YMCA.svg";
+import investQC from "../assets/images/home/parteners/investQC.svg";
+import quote1 from "../assets/images/home/quotes/fransua.jpg";
+import quote2 from "../assets/images/home/quotes/karina.jpeg";
+import quote3 from "../assets/images/home/quotes/kassandra.jpeg";
 
 const backgrounds = [
     {
         "img": slide1,
-        "url": "../../assets/images/slide1.jpg",
+        "url": "../assets/images/slide1.jpg",
         "title": "Join Welfare Avenue",
         "text": "WelfareAvenue is on a mission to make life around us better."
     },
     {
         "img": slide2,
-        "url": "../../assets/images/slide2.jpg",
+        "url": "../assets/images/slide2.jpg",
         "title": "Donate",
         "text": ""
     },
     {
         "img": slide3,
-        "url": "../../assets/images/slide3.jpg",
+        "url": "../assets/images/slide3.jpg",
         "title": "Volunteer",
         "text": ""
     },
     {
         "img": slide4,
-        "url": "../../assets/images/slide4.png",
+        "url": "../assets/images/slide4.png",
         "title": "Give Back",
         "text": ""
     },
     {
         "img": slide5,
-        "url": "../../assets/images/slide5.jpg",
+        "url": "../assets/images/slide5.jpg",
         "title": "Share",
         "text": ""
     },
@@ -147,51 +145,51 @@ export function HomeScreen() {
             <MyNavbar />
                 <UncontrolledCarousel backgrounds={backgrounds}/>
                 <Container className={"start-0  px-0 position-relative "} fluid>
-                        <h2 className="text-center text-light transitioning-background-primary py-5 mt-0 lead fs-1">
+                        <h2 className="text-center text-light transitioning-background-primary py-2 mt-0 lead fs-1">
                             <FontAwesomeIcon icon={faHouse} /> Our Mission
                         </h2>
-                    <p className="lead desc">
+                    <p className="px-1 lead py-1 fs-4 " style={{"textAlign": "justify", "margin": "0 5%"}}>
                         Welfare Avenue is a not-for-profit organization whose mission is to work towards the advancement and
                          <span className={"text-secondary fw-medium"}> inclusion of low-income and unhoused individuals</span> in the Greater Montreal Area, nationally,
                         and internationally, by relieving poverty and addressing <span className={"text-secondary fw-medium"}>food insecurity, isolation, and accessibility
                         to valuable resources.</span>
                     </p>
-                    <p className="lead desc">
+                    <p className="px-1 lead py-3 mb-5 fs-4 " style={{"textAlign": "justify", "margin": "0 5%"}}>
                         Our overarching theme is focused on leadership, partnership and networking to engage students, community members and other grassroot organizations in addressing our key issues.
                     </p>
                     <Container className={"pb-3 mb-5 d-flex align-content-center justify-content-center"}>
                         <Link onClick={handleLink} to={"/about"} className={"btn btn-lg btn-outline-info rounded"}>Read More About Us</Link>
                     </Container>
                 </Container>
-                <Container className={"px-0 w-100 my-4"}
+                <Container className={"px-0 w-100 "}
                            style={{border: ""}}
                            fluid>
                     <SimpleCloud />
                 </Container>
                 <Container className={"px-0 py-3 pt-0 my-0 transitioning-background-primary"} fluid>
-                    <h2 className="text-center text-light transitioning-background-primary py-5 lead fs-1">
+                    <h2 className="text-center text-light transitioning-background-primary py-2 lead fs-1">
                         What We Do
                     </h2>
                     <Container className={"py-3"} >
                         <EventTabs events={allEvents} />
                     </Container>
-                    <Container className={"py-0 my-4 d-flex align-content-center justify-content-center"}>
+                    <Container className={"py-0 my-0 d-flex align-content-center justify-content-center"}>
                         <Link onClick={handleLink} to={"/activity"} className={"btn btn-lg btn-outline-light rounded"}>Read More About Events</Link>
                     </Container>
                 </Container>
-                <Container className={"px-0 my-5"} fluid>
+                <Container className={"px-0 "} fluid>
                     <h2 className="text-center text-info py-2 lead fs-1">
                         Our Main Focus
                     </h2>
                     <OurFocus/>
                 </Container>
                 <Container className={"px-0"} fluid>
-                    <h2 className="text-center text-light py-5 my-0 mt-4 lead fs-1 top-slope">
+                    <h2 className="text-center text-light py-2 my-0 mt-4 lead fs-1 top-slope">
                         Our Partners
                     </h2>
                     <PartnerSection />
                     <Container className={"d-flex flex-row flex-wrap"} fluid>
-                        <Col sm={12} md={6} className={"px-3 my-5"}>
+                        <Col sm={12} md={6} className={"px-3"}>
                             <h2 className={"fs-2 lead text-center"}>Why we Partner</h2>
                             <Col sm={12} className={"p-lg-4 m-1"}>
                                 <p className={"lead "} style={{"textAlign": "justify"}}>Welfare Avenue actively seeks partnerships with organizations that share our mission and goals in order to maximize our impact in addressing poverty, food instability, and limited accessibility to resources. By collaborating with like-minded organizations, we can combine our resources, networks, and expertise to create a more comprehensive and integrated approach to tackling these societal challenges. These partnerships allow us to leverage the strengths and capabilities of each organization, ultimately leading to a greater positive impact on the lives of low-income individuals and marginalized communities. Through our partnerships, we aim to foster collaboration, share best practices, and create sustainable solutions that address the root causes of poverty and social inequality.</p>
@@ -216,7 +214,7 @@ export function HomeScreen() {
     )
 }
 
-function PartnerSection(){
+function PartnerSection({}){
     return(
         <Container className={"px-0"} fluid>
             <div className={"top-slope text-light py-5"}>
@@ -229,7 +227,7 @@ function PartnerSection(){
                                      style={{WebkitFilter: "grayscale(100%)", "filter": "grayscale(100%)", maxHeight: "300px", maxWidth: "250px"}} alt={"François Bergeron"}/>
                             </Container>
                         </Col>
-                        <Col className={"p-5 text-light"} sm={12} lg={6}>
+                        <Col className={"p-3 text-light"} sm={12} lg={6}>
                             <h2 className={"fw-light text-lg-start"}><span className={""}>François Bergeron </span> – Directeur général</h2>
                             <p className={"text-light fs-6"}>CDC Centre-Sud</p>
                             <Container className={"d-flex align-items-center"}>
@@ -253,7 +251,7 @@ function PartnerSection(){
                                 />
                             </Container>
                         </Col>
-                        <Col className={"p-5"} sm={12} lg={6}>
+                        <Col className={"p-3"} sm={12} lg={6}>
                             <h2 className={"fw-light text-lg-start"}><span className={""}>Karina Naim </span> – Directrice Générale</h2>
                             <p className={"text-light fs-6"}>SPORTIRA 1998</p>
                             <Container className={"d-flex align-items-center"}>
@@ -277,7 +275,7 @@ function PartnerSection(){
                                 />
                             </Container>
                         </Col>
-                        <Col className={"p-5 text-light"} sm={12} lg={6}>
+                        <Col className={"p-3 text-light"} sm={12} lg={6}>
                             <h2 className={"fw-light text-lg-start"}><span className={""}>Kassandra Gervasi </span> –  Assistant Branch Manager</h2>
                             <p className={"text-light fs-6"}>RBC</p>
                             <Container className={"d-flex align-items-center"}>
