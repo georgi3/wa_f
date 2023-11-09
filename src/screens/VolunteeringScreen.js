@@ -195,7 +195,7 @@ function TopVolunteers({ volunteers }) {
                             </Link>
                             <div>
                                 <p className={"py-0 my-0"}>Volunteering Time: </p>
-                                <p className={"lead text-info"}>{member?.total_volunteering_hours} hours</p>
+                                <p className={"lead text-info"}>{member?.volunteering_hours_last_30} hours</p>
                             </div>
                         </div>
                     )})
