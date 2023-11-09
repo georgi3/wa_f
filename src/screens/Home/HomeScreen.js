@@ -143,76 +143,76 @@ export function HomeScreen() {
         })()
     }, []);
     return (
-        <>
-            <MyNavbar />
-                <UncontrolledCarousel backgrounds={backgrounds}/>
-                <Container className={"start-0  px-0 position-relative "} fluid>
-                        <h2 className="text-center text-light transitioning-background-primary py-5 mt-0 lead fs-1">
-                            <FontAwesomeIcon icon={faHouse} /> Our Mission
-                        </h2>
-                    <p className="lead desc">
-                        Welfare Avenue is a not-for-profit organization whose mission is to work towards the advancement and
-                         <span className={"text-secondary fw-medium"}> inclusion of low-income and unhoused individuals</span> in the Greater Montreal Area, nationally,
-                        and internationally, by relieving poverty and addressing <span className={"text-secondary fw-medium"}>food insecurity, isolation, and accessibility
-                        to valuable resources.</span>
-                    </p>
-                    <p className="lead desc">
-                        Our overarching theme is focused on leadership, partnership and networking to engage students, community members and other grassroot organizations in addressing our key issues.
-                    </p>
-                    <Container className={"pb-3 mb-5 d-flex align-content-center justify-content-center"}>
-                        <Link onClick={handleLink} to={"/about"} className={"btn btn-lg btn-outline-info rounded"}>Read More About Us</Link>
-                    </Container>
-                </Container>
-                <Container className={"px-0 w-100 my-4"}
-                           style={{border: ""}}
-                           fluid>
-                    <SimpleCloud />
-                </Container>
-                <Container className={"px-0 py-3 pt-0 my-0 transitioning-background-primary"} fluid>
-                    <h2 className="text-center text-light transitioning-background-primary py-5 lead fs-1">
-                        What We Do
+        <div>
+        <MyNavbar />
+            <UncontrolledCarousel backgrounds={backgrounds}/>
+            <Container className={"start-0  px-0 position-relative "} fluid>
+                    <h2 className="text-center text-light transitioning-background-primary py-5 mt-0 lead fs-1">
+                        <FontAwesomeIcon icon={faHouse} /> Our Mission
                     </h2>
-                    <Container className={"py-3"} >
-                        <EventTabs events={allEvents} />
-                    </Container>
-                    <Container className={"py-0 my-4 d-flex align-content-center justify-content-center"}>
-                        <Link onClick={handleLink} to={"/activity"} className={"btn btn-lg btn-outline-light rounded"}>Read More About Events</Link>
-                    </Container>
+                <p className="lead desc">
+                    Welfare Avenue is a not-for-profit organization whose mission is to work towards the advancement and
+                        <span className={"text-secondary fw-medium"}> inclusion of low-income and unhoused individuals</span> in the Greater Montreal Area, nationally,
+                    and internationally, by relieving poverty and addressing <span className={"text-secondary fw-medium"}>food insecurity, isolation, and accessibility
+                    to valuable resources.</span>
+                </p>
+                <p className="lead desc">
+                    Our overarching theme is focused on leadership, partnership and networking to engage students, community members and other grassroot organizations in addressing our key issues.
+                </p>
+                <Container className={"pb-3 mb-5 d-flex align-content-center justify-content-center"}>
+                    <Link onClick={handleLink} to={"/about"} className={"btn btn-lg btn-outline-info rounded"}>Read More About Us</Link>
                 </Container>
-                <Container className={"px-0 my-5"} fluid>
-                    <h2 className="text-center text-info py-2 lead fs-1">
-                        Our Main Focus
-                    </h2>
-                    <OurFocus/>
+            </Container>
+            <Container className={"px-0 w-100 my-4"}
+                        style={{border: ""}}
+                        fluid>
+                <SimpleCloud />
+            </Container>
+            <Container className={"px-0 py-3 pt-0 my-0 transitioning-background-primary"} fluid>
+                <h2 className="text-center text-light transitioning-background-primary py-5 lead fs-1">
+                    What We Do
+                </h2>
+                <Container className={"py-3"} >
+                    <EventTabs events={allEvents} />
                 </Container>
-                <Container className={"px-0"} fluid>
-                    <h2 className="text-center text-light py-5 my-0 mt-4 lead fs-1 top-slope">
-                        Our Partners
-                    </h2>
-                    <PartnerSection />
-                    <Container className={"d-flex flex-row flex-wrap"} fluid>
-                        <Col sm={12} md={6} className={"px-3 my-5"}>
-                            <h2 className={"fs-2 lead text-center"}>Why we Partner</h2>
-                            <Col sm={12} className={"p-lg-4 m-1"}>
-                                <p className={"lead "} style={{"textAlign": "justify"}}>Welfare Avenue actively seeks partnerships with organizations that share our mission and goals in order to maximize our impact in addressing poverty, food instability, and limited accessibility to resources. By collaborating with like-minded organizations, we can combine our resources, networks, and expertise to create a more comprehensive and integrated approach to tackling these societal challenges. These partnerships allow us to leverage the strengths and capabilities of each organization, ultimately leading to a greater positive impact on the lives of low-income individuals and marginalized communities. Through our partnerships, we aim to foster collaboration, share best practices, and create sustainable solutions that address the root causes of poverty and social inequality.</p>
-                            </Col>
-                            {/*<Col sm={12} className={"p-lg-4 m-1"}>*/}
-                            {/*    <p className={"lead "} style={{"textAlign": "justify"}}>2 {lorem}</p>*/}
-                            {/*</Col>*/}
+                <Container className={"py-0 my-4 d-flex align-content-center justify-content-center"}>
+                    <Link onClick={handleLink} to={"/activity"} className={"btn btn-lg btn-outline-light rounded"}>Read More About Events</Link>
+                </Container>
+            </Container>
+            <Container className={"px-0 my-5"} fluid>
+                <h2 className="text-center text-info py-2 lead fs-1">
+                    Our Main Focus
+                </h2>
+                <OurFocus/>
+            </Container>
+            <Container className={"px-0"} fluid>
+                <h2 className="text-center text-light py-5 my-0 mt-4 lead fs-1 top-slope">
+                    Our Partners
+                </h2>
+                <PartnerSection />
+                <Container className={"d-flex flex-row flex-wrap"} fluid>
+                    <Col sm={12} md={6} className={"px-3 my-5"}>
+                        <h2 className={"fs-2 lead text-center"}>Why we Partner</h2>
+                        <Col sm={12} className={"p-lg-4 m-1"}>
+                            <p className={"lead "} style={{"textAlign": "justify"}}>Welfare Avenue actively seeks partnerships with organizations that share our mission and goals in order to maximize our impact in addressing poverty, food instability, and limited accessibility to resources. By collaborating with like-minded organizations, we can combine our resources, networks, and expertise to create a more comprehensive and integrated approach to tackling these societal challenges. These partnerships allow us to leverage the strengths and capabilities of each organization, ultimately leading to a greater positive impact on the lives of low-income individuals and marginalized communities. Through our partnerships, we aim to foster collaboration, share best practices, and create sustainable solutions that address the root causes of poverty and social inequality.</p>
                         </Col>
-                        <Col sm={12} md={6} className={"px-3"}>
-                            <h2 className={"fs-2 lead text-center"}>What our Partnerships Create</h2>
-                            <Col sm={12} className={"p-lg-4 m-1"}>
-                                <p className={"lead "} style={{"textAlign": "justify"}}>Partnering with Welfare Avenue provides an opportunity for organizations to align themselves with a reputable and dedicated nonprofit organization committed to making a tangible difference in the lives of those in need. By partnering with us, organizations can demonstrate their corporate social responsibility and showcase their commitment to community engagement and social impact. Additionally, this can enhance your employee’s engagement, expand their reach, and create meaningful connections within the community. Through partnerships we provide organizations with the chance to collaborate on joint projects, leverage shared resources, and tap into our expertise in poverty alleviation and community development. By working together, partners can amplify their collective efforts and achieve greater outcomes in creating positive social change while helping us further our mission.</p>
-                            </Col>
-                            {/*<Col sm={12} className={"p-lg-4 m-1"}>*/}
-                            {/*    <p className={"lead "} style={{"textAlign": "justify"}}>4 {lorem}</p>*/}
-                            {/*</Col>*/}
+                        {/*<Col sm={12} className={"p-lg-4 m-1"}>*/}
+                        {/*    <p className={"lead "} style={{"textAlign": "justify"}}>2 {lorem}</p>*/}
+                        {/*</Col>*/}
+                    </Col>
+                    <Col sm={12} md={6} className={"px-3"}>
+                        <h2 className={"fs-2 lead text-center"}>What our Partnerships Create</h2>
+                        <Col sm={12} className={"p-lg-4 m-1"}>
+                            <p className={"lead "} style={{"textAlign": "justify"}}>Partnering with Welfare Avenue provides an opportunity for organizations to align themselves with a reputable and dedicated nonprofit organization committed to making a tangible difference in the lives of those in need. By partnering with us, organizations can demonstrate their corporate social responsibility and showcase their commitment to community engagement and social impact. Additionally, this can enhance your employee’s engagement, expand their reach, and create meaningful connections within the community. Through partnerships we provide organizations with the chance to collaborate on joint projects, leverage shared resources, and tap into our expertise in poverty alleviation and community development. By working together, partners can amplify their collective efforts and achieve greater outcomes in creating positive social change while helping us further our mission.</p>
                         </Col>
-                    </Container>
+                        {/*<Col sm={12} className={"p-lg-4 m-1"}>*/}
+                        {/*    <p className={"lead "} style={{"textAlign": "justify"}}>4 {lorem}</p>*/}
+                        {/*</Col>*/}
+                    </Col>
                 </Container>
-            <Footer />
-        </>
+            </Container>
+        <Footer />
+        </div>
     )
 }
 

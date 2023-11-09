@@ -73,7 +73,7 @@ export default function SignInScreen(){
                                     E-mail
                                 </Form.Label>
                                 <Form.Control
-                                    className={"py-2 w-100"}
+                                    className={"py-2 w-100 form-control-lg"}
                                     type={"text"}
                                     placeholder={"Enter email"}
                                     onChange={(e) => setEmail(e.target.value)}
@@ -83,7 +83,7 @@ export default function SignInScreen(){
                                         controlId={"formSignInPassword"}>
                                 <Form.Label className={"text-light lead fs-6 px-3"}>Password</Form.Label>
                                 <Form.Control
-                                    className={"py-2 w-100"}
+                                    className={"py-2 w-100 form-control-lg"}
                                     type={"password"}
                                     placeholder={"Enter password"}
                                     onChange={(e) => setPassword(e.target.value)}

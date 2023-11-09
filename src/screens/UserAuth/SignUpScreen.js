@@ -71,7 +71,7 @@ export default function SignUpScreen(){
 
     return (
         <section className={"waves-bg-primary vh-100"}>
-            <div className={"row d-flex justify-content-center align-items-center h-100"}>
+            <div className={"row d-flex justify-content-center align-items-center h-100 m-0"}>
                 <div className={"col-12 col-md-8 col-lg-6 col-xl-5"}>
                     <Form  onSubmit={handleSubmit} className={"card bg-dark text-white"}>
                         <div className="card-body p-5 mx-3">
@@ -85,6 +85,7 @@ export default function SignUpScreen(){
                                     First Name
                                 </Form.Label>
                                 <Form.Control
+                                            className={"form-control-lg"}
                                             type={"text"}
                                             placeholder={"Enter your first name"}
                                             onChange={(e) => setFirstName(e.target.value)}
@@ -96,6 +97,7 @@ export default function SignUpScreen(){
                                     Last Name
                                 </Form.Label>
                                 <Form.Control
+                                            className={"form-control-lg"}
                                             type={"text"}
                                             placeholder={"Enter your last name"}
                                             onChange={(e) => setLastName(e.target.value)}
@@ -107,6 +109,7 @@ export default function SignUpScreen(){
                                     E-mail
                                 </Form.Label>
                                 <Form.Control
+                                            className={"form-control-lg"}
                                             type={"email"}
                                             placeholder={"Enter email"}
                                             onChange={(e) => setEmail(e.target.value)}
@@ -118,6 +121,7 @@ export default function SignUpScreen(){
                                     Password
                                 </Form.Label>
                                 <Form.Control
+                                            className={"form-control-lg"}
                                             type={"password"}
                                             placeholder={"Enter password"}
                                             onChange={(e) => setPassword(e.target.value)}
@@ -130,6 +134,7 @@ export default function SignUpScreen(){
                                     Repeat Password
                                 </Form.Label>
                                 <Form.Control
+                                            className={"form-control-lg"}
                                             type={"password"}
                                             placeholder={"Repeat your password"}
                                             onChange={(e) => setConfirmPassword(e.target.value)}

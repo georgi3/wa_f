@@ -3,10 +3,6 @@
     border-radius: 1rem;
 }
 
-.row {
-    margin: 0;
-}
-
 .card.bg-dark .form-control {
     border-radius: 0.25rem;
     color: white;
