@@ -293,7 +293,7 @@ const VolunteerAssociatedEvents = (eventIds) => {
                         <Card.Img variant="top" src={AssEvent.event_poster} alt={AssEvent.title} />
                         <Card.Body>
                             <Card.Title>{AssEvent.title}</Card.Title>
-                            <Card.Text>{AssEvent.datetime}</Card.Text>
+                            <Card.Text>{AssEvent?.datetime ? format(parseISO(AssEvent?.datetime), 'MMM dd, yyyy') : ''}</Card.Text>
                         </Card.Body>
                     </Card>
                 </Link>
