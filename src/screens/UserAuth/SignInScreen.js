@@ -7,7 +7,7 @@ import {useAuth} from "../../context/AuthContext";
 import {apiCall, processUserData} from "../../utils/apiUtils";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-import './AuthScreens.css';
+import './AuthScreens.scss';
 
 export default function SignInScreen(){
     const { login } = useAuth();

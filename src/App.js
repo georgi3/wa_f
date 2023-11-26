@@ -23,6 +23,7 @@ import LoginCallback from "./components/LoginCallback";
 import RequestPasswordReset from "./screens/UserAuth/RequestPasswordReset";
 import PasswordResetConfirm from "./components/PasswordResetConfirm";
 import NotFound from "./components/404";
+import LandingScreen from "./screens/LandingScreen/LandingScreen";
 
 function ScrollToTop() {
     const { pathname } = useLocation();
@@ -52,6 +53,7 @@ function App() {
                       <Route path="/activity/fundraising/:id" element={<FundraiserEventScreen />} />
                       <Route path="/activity/club-volunteering" element={<ClubVolunteering />}/>
                       <Route path="/activity/donate-essentials" element={<EssentialsDonationScreen />}/>
+                      <Route path="/landing-page" element={<LandingScreen />} />
                       <Route path="/press" element={<PressScreen />}/>
                       {/*<Route path="/donate" element={<DonateScreen />}/>*/}
                       <Route path="/signup" element={<SignUpScreen  />}/>
