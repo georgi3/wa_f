@@ -192,7 +192,7 @@
             margin-top: 2rem;
             margin-bottom: 2rem;
 
-            gap: 2rem;
+            gap: 3rem;
 
             .contact-form {
                 grid-column: span 2;
@@ -245,7 +245,7 @@
                 object-fit: cover;
                 border: 5px solid #462255;
 
-                transform: scale(1.1) translateX(50%);
+                transform: scale(1.1);
             }
 
             .right-part.donation-benifits {
