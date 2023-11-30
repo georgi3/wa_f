@@ -1,15 +1,18 @@
 {
   "files": {
-    "main.css": "/static/react/static/css/main.90d97bc3.css",
-    "main.js": "/static/react/static/js/main.39f1267b.js",
+    "main.css": "/static/react/static/css/main.9ba7a221.css",
+    "main.js": "/static/react/static/js/main.f2826849.js",
     "static/js/787.cda612ba.chunk.js": "/static/react/static/js/787.cda612ba.chunk.js",
+    "static/media/donation.mp4": "/static/react/static/media/donation.1fbb23410b5eba164a66.mp4",
     "static/media/3.mp4": "/static/react/static/media/3.4789c1132cb7f6776e7a.mp4",
     "static/media/2.MOV": "/static/react/static/media/2.abb2b0162680004cd7d1.MOV",
     "static/media/1.mp4": "/static/react/static/media/1.61bd2a95402e332a4ea3.mp4",
+    "static/media/mission.mp4": "/static/react/static/media/mission.61bd2a95402e332a4ea3.mp4",
     "static/media/2.mp4": "/static/react/static/media/2.8e6962340c442b949864.mp4",
     "static/media/slide4.png": "/static/react/static/media/slide4.fcd53d123dddab0f6d09.png",
     "static/media/slide2.jpg": "/static/react/static/media/slide2.8dc758b2b4428c9c497e.jpg",
     "static/media/weeklyEvent.png": "/static/react/static/media/weeklyEvent.a350d8517e0c1f5105aa.png",
+    "static/media/landing-page-pic1.jpg": "/static/react/static/media/landing-page-pic1.1d5b53196d7458c65887.jpg",
     "static/media/slide1.jpg": "/static/react/static/media/slide1.77f072d20a838d8d4557.jpg",
     "static/media/1.JPG": "/static/react/static/media/1.e9733b11c30dc454aafb.JPG",
     "static/media/server.png": "/static/react/static/media/server.5f940d40f5c054ca3748.png",
@@ -19,14 +22,18 @@
     "static/media/collabs.png": "/static/react/static/media/collabs.185062dca63336ad5457.png",
     "static/media/front.jpg": "/static/react/static/media/front.ec62b305c2e270fbccf3.jpg",
     "static/media/slide3.jpg": "/static/react/static/media/slide3.ed138b47c6a1175edc18.jpg",
+    "static/media/landing-page-pic2.png": "/static/react/static/media/landing-page-pic2.a26c9f44027ad7247d21.png",
     "static/media/clothesDonation.png": "/static/react/static/media/clothesDonation.50f69402c95354e3eeb4.png",
+    "static/media/NexaBold.ttf.svg": "/static/react/static/media/NexaBold.ttf.95ad094f600fe7cacf52.svg",
     "static/media/1.webp": "/static/react/static/media/1.092e5952574f80a4da31.webp",
     "static/media/cook.webp": "/static/react/static/media/cook.21e80c9c4cfa23acf3be.webp",
     "static/media/4.webp": "/static/react/static/media/4.84c181e4ddaf8617878f.webp",
     "static/media/kassandra.jpeg": "/static/react/static/media/kassandra.4dd2fe2c7f2bcb79026c.jpeg",
     "static/media/driver.webp": "/static/react/static/media/driver.ace40d55f266064cc61d.webp",
     "static/media/fransua.jpg": "/static/react/static/media/fransua.29bd8a79f2ede4d5b1dd.jpg",
+    "static/media/NexaBold.ttf.eot": "/static/react/static/media/NexaBold.ttf.767d20fecf0592609eb8.eot",
     "static/media/2.webp": "/static/react/static/media/2.223588ee328f17f72615.webp",
+    "static/media/NexaBold.ttf.woff": "/static/react/static/media/NexaBold.ttf.b8cc96117d1e0c073b77.woff",
     "static/media/3.webp": "/static/react/static/media/3.178763656ba28afb517c.webp",
     "static/media/logo.webp": "/static/react/static/media/logo.3b6c4acdee90734971eb.webp",
     "static/media/revicons.eot": "/static/react/static/media/revicons.a77de540a38981833f9e.eot",
@@ -40,12 +47,12 @@
     "static/media/YMCA.svg": "/static/react/static/media/YMCA.84af209acbe2272c8a2f4110ea66b6d6.svg",
     "static/media/unknown_user_icon.svg": "/static/react/static/media/unknown_user_icon.8676d62f509ed06117e62e60dfaaff51.svg",
     "index.html": "/static/react/index.html",
-    "main.90d97bc3.css.map": "/static/react/static/css/main.90d97bc3.css.map",
-    "main.39f1267b.js.map": "/static/react/static/js/main.39f1267b.js.map",
+    "main.9ba7a221.css.map": "/static/react/static/css/main.9ba7a221.css.map",
+    "main.f2826849.js.map": "/static/react/static/js/main.f2826849.js.map",
     "787.cda612ba.chunk.js.map": "/static/react/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.90d97bc3.css",
-    "static/js/main.39f1267b.js"
+    "static/css/main.9ba7a221.css",
+    "static/js/main.f2826849.js"
   ]
 }
