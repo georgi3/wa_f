@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "/static/react/",
+  "proxy": "http://127.0.0.1:8000/",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -23,6 +24,7 @@
     "react-d3-cloud": "^1.0.6",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
+    "react-helmet": "^6.1.0",
     "react-hook-form": "^7.46.1",
     "react-modal": "^3.16.1",
     "react-multi-carousel": "^2.8.2",

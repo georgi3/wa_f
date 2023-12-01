@@ -205,35 +205,43 @@
                 grid-row: 1 / span 1;
             }
             
-            .left-part p {
+            .left-part {
                 font-size: 1.5rem;
-                font-weight: 300;
-                line-height: 1.5;
-            
-                text-transform: uppercase;
+                p {
+                    font-weight: 300;
+                    line-height: 1.5;
+                
+                    text-transform: uppercase;
+                }
+
+                p span {
+                    color: #069E2D;
+                }
+
+                ol {
+                    font-weight: 300;
+                    line-height: 1.5;
+                
+                    text-transform: uppercase;
+                }
+
+                ol li {
+                    margin-bottom: 1rem;
+                }
+
+                video {
+                    width: 100%;
+                    margin: 2rem auto;
+
+                    object-fit: cover;
+                }
             }
 
-            .left-part p span {
-                color: #069E2D;
-            }
-
-            .left-part ol {
-                font-size: 1.5rem;
-                font-weight: 300;
-                line-height: 1.5;
-            
-                text-transform: uppercase;
-            }
-
-            .left-part ol li {
-                margin-bottom: 1rem;
-            }
-
-            .left-part video {
-                width: 100%;
-                margin: 2rem auto;
-
-                object-fit: cover;
+            @media screen and (max-width: 980px) {
+                .left-part {
+                    font-size: 1rem;
+                    padding: 0 1rem;
+                }
             }
 
             .right-part img {
