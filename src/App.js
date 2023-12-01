@@ -53,7 +53,7 @@ function App() {
                       <Route path="/activity/fundraising/:id" element={<FundraiserEventScreen />} />
                       <Route path="/activity/club-volunteering" element={<ClubVolunteering />}/>
                       <Route path="/activity/donate-essentials" element={<EssentialsDonationScreen />}/>
-                      <Route path="/landing-page" element={<LandingScreen />} />
+                      <Route path="/app-landing-page" element={<LandingScreen />} />
                       <Route path="/press" element={<PressScreen />}/>
                       {/*<Route path="/donate" element={<DonateScreen />}/>*/}
                       <Route path="/signup" element={<SignUpScreen  />}/>

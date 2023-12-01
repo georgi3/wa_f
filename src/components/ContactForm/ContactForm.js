@@ -100,7 +100,7 @@ export default function ContactForm({ user }) {
 
 function InputField({ id, type, defaultValue, placeholder, onChange }) {
     return (
-        <div className="form__group" controlId={id}>
+        <div className="form__group" controlid={id}>
             <label htmlFor={id} className='form__label'>{placeholder}</label>
             <input
                 name={id}
@@ -117,7 +117,7 @@ function InputField({ id, type, defaultValue, placeholder, onChange }) {
 
 function TextAreaField({ id, defaultValue, placeholder, onChange }) {
     return (
-        <div className="form__group" controlId={id}>
+        <div className="form__group" controlid={id}>
             <label htmlFor={id} className='form__label'>{placeholder}</label>
             <textarea
                 name={id}

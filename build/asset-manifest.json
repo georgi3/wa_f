@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/react/static/css/main.9ba7a221.css",
-    "main.js": "/static/react/static/js/main.c3a69981.js",
+    "main.css": "/static/react/static/css/main.82f9c6e5.css",
+    "main.js": "/static/react/static/js/main.a3a04301.js",
     "static/js/787.cda612ba.chunk.js": "/static/react/static/js/787.cda612ba.chunk.js",
     "static/media/donation.mp4": "/static/react/static/media/donation.1fbb23410b5eba164a66.mp4",
     "static/media/3.mp4": "/static/react/static/media/3.4789c1132cb7f6776e7a.mp4",
@@ -17,12 +17,12 @@
     "static/media/1.JPG": "/static/react/static/media/1.e9733b11c30dc454aafb.JPG",
     "static/media/server.png": "/static/react/static/media/server.5f940d40f5c054ca3748.png",
     "static/media/slide5.jpg": "/static/react/static/media/slide5.2884212142f4f612691d.jpg",
+    "static/media/landing-page-pic2.png": "/static/react/static/media/landing-page-pic2.ca6d9eb3554accfb80be.png",
     "static/media/fundRaisers.png": "/static/react/static/media/fundRaisers.82568da6a122fd63b7b2.png",
     "static/media/volunteeringHero.jpg": "/static/react/static/media/volunteeringHero.ad99a3c0a92c027793ae.jpg",
     "static/media/collabs.png": "/static/react/static/media/collabs.185062dca63336ad5457.png",
     "static/media/front.jpg": "/static/react/static/media/front.ec62b305c2e270fbccf3.jpg",
     "static/media/slide3.jpg": "/static/react/static/media/slide3.ed138b47c6a1175edc18.jpg",
-    "static/media/landing-page-pic2.png": "/static/react/static/media/landing-page-pic2.a26c9f44027ad7247d21.png",
     "static/media/clothesDonation.png": "/static/react/static/media/clothesDonation.50f69402c95354e3eeb4.png",
     "static/media/NexaBold.ttf.svg": "/static/react/static/media/NexaBold.ttf.95ad094f600fe7cacf52.svg",
     "static/media/1.webp": "/static/react/static/media/1.092e5952574f80a4da31.webp",
@@ -47,12 +47,12 @@
     "static/media/YMCA.svg": "/static/react/static/media/YMCA.84af209acbe2272c8a2f4110ea66b6d6.svg",
     "static/media/unknown_user_icon.svg": "/static/react/static/media/unknown_user_icon.8676d62f509ed06117e62e60dfaaff51.svg",
     "index.html": "/static/react/index.html",
-    "main.9ba7a221.css.map": "/static/react/static/css/main.9ba7a221.css.map",
-    "main.c3a69981.js.map": "/static/react/static/js/main.c3a69981.js.map",
+    "main.82f9c6e5.css.map": "/static/react/static/css/main.82f9c6e5.css.map",
+    "main.a3a04301.js.map": "/static/react/static/js/main.a3a04301.js.map",
     "787.cda612ba.chunk.js.map": "/static/react/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ba7a221.css",
-    "static/js/main.c3a69981.js"
+    "static/css/main.82f9c6e5.css",
+    "static/js/main.a3a04301.js"
   ]
 }
