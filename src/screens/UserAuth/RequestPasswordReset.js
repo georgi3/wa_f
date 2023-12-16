@@ -22,7 +22,7 @@ function RequestPasswordReset() {
 
     return (
         <section className={"waves-bg-primary vh-100"}>
-            <div className={"row d-flex justify-content-center align-items-center h-100"}>
+            <div className={"row d-flex justify-content-center align-items-center h-100 m-0"}>
                 <div className={"col-12 col-md-8 col-lg-6 col-xl-5"}>
                     <Form  onSubmit={handleSubmit} className={"card bg-dark text-white"}>
                         <div className="card-body p-5">
