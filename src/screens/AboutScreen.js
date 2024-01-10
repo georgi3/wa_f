@@ -105,7 +105,7 @@ export function AboutScreen(){
                     <p className="px-2 lead  py-3 fs-4" style={{"textAlign": "justify"}}>
                         Welfare Avenue is a not-for-profit organization whose mission is to work towards the advancement and
                         <span className={"text-secondary fw-medium"}> inclusion of low-income and unhoused individuals</span> in the Greater Montreal Area, nationally,
-                        and internationally. Welfare Avenue is a not-for-profit organization whose mission is to work towards the advancement and inclusion of low-income individuals in the Greater Montreal Area, nationally and internationally. This is accomplished by the following activities:
+                        and internationally. This is accomplished by the following activities:
                     </p>
                     <Row className={"lead mb-5"}>
                         <Col lg={12}  sm={12}>

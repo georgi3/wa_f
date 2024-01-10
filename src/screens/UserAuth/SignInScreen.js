@@ -68,6 +68,9 @@ export default function SignInScreen(){
                             <Container className={"my-3 py-5 text-center"}>
                                 <h1 className={"text-light fw-light"}>Sign in to WelfareAvenue</h1>
                             </Container>
+                            {errorMessage && <Alert className={"bg-light"}>
+                                <span className={"text-danger"}>{errorMessage}</span>
+                            </Alert>}
                             <Form.Group className={"my-2 py-2"} controlId={"formSignInEmail"}>
                                 <Form.Label className={"text-light lead fs-6 px-3"}>
                                     E-mail
@@ -105,9 +108,6 @@ export default function SignInScreen(){
                                     )
                                 }
                             </Container>
-                            {errorMessage && <Alert className={"bg-light"}>
-                                <span className={"text-danger"}>{errorMessage}</span>
-                            </Alert>}
                             <Container>
                                 <p className={"text-center py-3 text-light"}>
                                     <Link to={"/password/request-reset/"} className={"fw-semibold text-light"}>Forgot password?</Link> &nbsp;| &nbsp;

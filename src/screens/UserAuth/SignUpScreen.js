@@ -79,6 +79,9 @@ export default function SignUpScreen(){
                             <Container className={"py-5 my-3 text-center"}>
                                 <h1 className={"text-light lead fs-1"}>Join our Community!</h1>
                             </Container>
+                            {errorMessage && <Alert className={"bg-light"}>
+                                <span className={"text-danger"}>{errorMessage}</span>
+                            </Alert>}
                             <Form.Group className={"form-outline mb-4"}
                                         controlId={"formRegistrationFName"}>
                                 <Form.Label className={"text-light lead fs-6 px-3"}>
@@ -161,9 +164,6 @@ export default function SignUpScreen(){
                                     )
                                 }
                             </Container>
-                            {errorMessage && <Alert className={"bg-light"}>
-                                <span className={"text-danger"}>{errorMessage}</span>
-                            </Alert>}
                             <Container className={"mt-2"}>
                                 <p className={"text-center text-light"}>Already have an account? <Link to={"/signin"} className={"fw-semibold text-light"}>Log In Here</Link></p>
                             </Container>
