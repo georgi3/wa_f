@@ -7,15 +7,15 @@ export default function PressScreen(){
     return (
         <>
             <MyNavbar />
-            <Container className={"px-0 mx-0"} fluid>
+            <Container className={"p-lg-4 mx-0"} fluid>
                 <Container className={"py-4 pb-5  px-0"} fluid>
                     <h1 className={"text-center m-0"}>Press Coverage</h1>
                 </Container>
-                <Container className={"px-0"} fluid>
-                    <Row className={`d-flex flex-row px-0 mx-0 .news-box-container `} >
+                <Container className={"p-lg-4"} fluid>
+                    <Row className={`d-flex flex-row px-0 mx-0 .news-box-container my-3`} >
                         <Col sm={12} lg={6}
                              className={"d-flex justify-content-center align-content-center p-0"}>
-                            <iframe className={"w-100 shadow-lg"}
+                            <iframe className={"w-75 shadow-lg"}
                                     src="https://youtube.com/embed/XXnRy4axqKY?autoplay=1&mute=1&loop=1&rel=0"
                                     title="YouTube video player"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -29,9 +29,9 @@ export default function PressScreen(){
                             </p>
                         </Col>
                     </Row>
-                    <Row className={`d-flex flex-row px-0 mx-0 flex-sm-row-reverse .news-box-container `} >
+                    <Row className={`d-flex flex-row px-0 mx-0 flex-sm-row-reverse .news-box-container my-3`} >
                         <Col sm={12} lg={6} className={"d-flex justify-content-center align-content-center p-0"}>
-                            <iframe className={"w-100 shadow-lg"}
+                            <iframe className={"w-75 shadow-lg"}
                                     src="https://www.youtube.com/embed/5C7RoUmCMSI?autoplay=0&mute=1&loop=1&rel=0"
                                     title="YouTube video player"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -44,9 +44,9 @@ export default function PressScreen(){
                             </p>
                         </Col>
                     </Row>
-                    <Row className={`d-flex flex-row px-0 mx-0 .news-box-container `} >
-                        <Col sm={12} lg={6} className={"d-flex justify-content-center align-content-center p-0"}>
-                            <iframe className={"w-100 shadow-lg"}
+                    <Row className={`d-flex flex-row px-0 mx-0 .news-box-container my-3`} >
+                        <Col sm={12} lg={6} className={"d-flex justify-content-center align-content-center p-0 b-1"}>
+                            <iframe className={"w-75 shadow-lg"}
                                     src="https://www.youtube.com/embed//Vf-2SEKQEuM?autoplay=0&mute=1&loop=1&rel=0"
                                     title="YouTube video player"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

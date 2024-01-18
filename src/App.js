@@ -9,7 +9,7 @@ import VolunteeringEventScreen from "./screens/VolunteeringEventScreen";
 import SignUpScreen from "./screens/UserAuth/SignUpScreen";
 import SignInScreen from "./screens/UserAuth/SignInScreen";
 import PressScreen from "./screens/PressScreen";
-// import DonateScreen from "./screens/DonateScreen";
+import DonateScreen from "./screens/DonateScreen";
 import VolunteeringScreen from "./screens/VolunteeringScreen";
 import ActivityScreen from "./screens/ActivityScreen";
 import WeeklyVolunteering from "./screens/WeeklyVolunteering";
@@ -55,7 +55,7 @@ function App() {
                       <Route path="/activity/donate-essentials" element={<EssentialsDonationScreen />}/>
                       <Route path="/app-landing-page" element={<LandingScreen />} />
                       <Route path="/press" element={<PressScreen />}/>
-                      {/*<Route path="/donate" element={<DonateScreen />}/>*/}
+                      <Route path="/donate" element={<DonateScreen />}/>
                       <Route path="/signup" element={<SignUpScreen  />}/>
                       <Route path="/signin" element={<SignInScreen  />}/>
                       <Route path="/user-profile" element={<UserProfileScreen />}>

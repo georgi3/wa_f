@@ -44,7 +44,7 @@ export default function MyNavbar() {
                         <LinkContainer to="/press">
                             <Nav.Link onClick={handleLink} className="mx-3"><FontAwesomeIcon icon={faBookOpen} /> Press</Nav.Link>
                         </LinkContainer>
-                        <LinkContainer  to="" onClick={(e) => { e.preventDefault(); externalRedirect("https://donorbox.org/welfare-avenue"); }}  className={"bg-secondary"}>
+                        <LinkContainer  to="/donate" className={"bg-secondary"}>
                             <Nav.Link onClick={handleLink} className="rounded-5 text-light px-3 mx-3" ><FontAwesomeIcon icon={faHandHoldingDollar} className={"text-light"} /> Donate</Nav.Link>
                         </LinkContainer>
                     </Nav>
