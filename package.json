@@ -17,6 +17,7 @@
     "d3-scale": "^4.0.2",
     "d3-scale-chromatic": "^3.0.0",
     "date-fns": "^2.30.0",
+    "ldrs": "^1.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-countup": "^6.4.1",

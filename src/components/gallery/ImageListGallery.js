@@ -9,6 +9,7 @@ import {
 import './gallery.css';
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageList from "@mui/material/ImageList";
+import { ImageLoader } from '../ImageLoader';
 
 export default function ImageListGallery({galleryImages}){
     const [slideNumber, setSlideNumber] = useState(0)
@@ -41,7 +42,7 @@ export default function ImageListGallery({galleryImages}){
                     <FontAwesomeIcon icon={faCircleChevronLeft} className='btnPrev' onClick={prevSlide} />
                     <FontAwesomeIcon icon={faCircleChevronRight} className='btnNext' onClick={nextSlide} />
                     <div className='fullScreenImage'>
-                        <img src={galleryImages[slideNumber].image} alt='' />
+                        <ImageLoader src={galleryImages[slideNumber].image} alt='' />
                     </div>
                 </div>
             }
@@ -50,6 +51,7 @@ export default function ImageListGallery({galleryImages}){
                     galleryImages && galleryImages.map((item, index) => (
                         <>
                             <ImageListItem key={item.image} className={""}>
+                                
                                 <img
                                     src={`${item.image}?w=164&h=164&fit=crop&auto=format`}
                                     srcSet={`${item.image}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
