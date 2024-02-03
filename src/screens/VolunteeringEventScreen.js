@@ -21,15 +21,20 @@ export default function VolunteeringEventScreen(){
     const EVENT_DATE = new Date(vEvent?.datetime);
     const NOW_IN_MS = new Date().getTime();
     const DATE_DIFFERENCE_IN_MS = EVENT_DATE.getTime() - NOW_IN_MS;
+    const currentDate = new Date();
     const dateTimeDifference = NOW_IN_MS + DATE_DIFFERENCE_IN_MS;
     const isFutureEvent = useMemo(() => new Date(vEvent.datetime) > new Date(), [vEvent])
+    const dateFourDaysBeforeEvent = new Date(EVENT_DATE);
+    dateFourDaysBeforeEvent.setDate(dateFourDaysBeforeEvent.getDate() - 4);
+    const applicationIsClosed = dateFourDaysBeforeEvent <= currentDate;
 
     return(
         <MainLayout>
             {
                 isFutureEvent
                 ?
-                    <VolunteeringFutureEvent vEvent={vEvent} dateTimeDifference={dateTimeDifference} />
+                    <VolunteeringFutureEvent vEvent={vEvent} dateTimeDifference={dateTimeDifference}
+                                             closeApplication={applicationIsClosed} />
                 :
                     <VolunteeringPastEvent vEvent={vEvent} />
             }
