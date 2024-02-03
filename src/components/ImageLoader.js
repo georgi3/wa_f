@@ -1,4 +1,5 @@
-import React, { Image, useState } from 'react';
+import React, { useState } from 'react';
+// import React, { Image, useState } from 'react';
 import { quantum } from 'ldrs';
 
 quantum.register();
@@ -22,8 +23,8 @@ export function ImageLoader({ src, ...props }) {
             {loading && <l-quantum size="85" speed="1.75" color="#711d94"></l-quantum>}
             {error && <p className={"text-danger"}>{error}</p>}
 
-            <Image {...props} src={src} style={{display: loading ? 'none' : 'block'}} onLoadedData={handleLoadedData} onError={handleLoadingError}>
-            </Image>
+            {/*<Image {...props} src={src} style={{display: loading ? 'none' : 'block'}} onLoadedData={handleLoadedData} onError={handleLoadingError}>*/}
+            {/*</Image>*/}
         </div>
     );
 }
