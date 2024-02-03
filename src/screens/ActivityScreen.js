@@ -2,11 +2,11 @@ import React from "react";
 import {Container, Col, Row} from "react-bootstrap";
 import MyNavbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import weeklyEvent from "../assets/images/activity/weeklyEvent.png"
-import collabs from "../assets/images/activity/collabs.png"
-import clothesDonation from "../assets/images/activity/clothesDonation.png"
-import activityBackground from "../assets/images/home/slide4.png"
-import fundRaisers from "../assets/images/activity/fundRaisers.png"
+import weeklyEvent from "../assets/images/activity/weeklyEvent.png";
+import collabs from "../assets/images/activity/collabs.png";
+import clothesDonation from "../assets/images/activity/clothesDonation.png";
+import activityBackground from "../assets/images/home/slide4.png";
+import fundRaisers from "../assets/images/activity/fundRaisers.png";
 import {Link} from "react-router-dom";
 import {handleLink} from "../utils/navigationUtils";
 

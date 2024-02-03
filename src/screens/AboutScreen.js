@@ -12,13 +12,13 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MyNavbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import fontImage from "../assets/images/about/front.jpg"
-import testimonial1 from "../assets/images/about/testimonials/1.webp"
-import testimonial2 from "../assets/images/about/testimonials/2.webp"
-import testimonial3 from "../assets/images/about/testimonials/3.webp"
-import testimonial4 from "../assets/images/about/testimonials/4.webp"
+import fontImage from "../assets/images/about/front.jpg";
+import testimonial1 from "../assets/images/about/testimonials/1.webp";
+import testimonial2 from "../assets/images/about/testimonials/2.webp";
+import testimonial3 from "../assets/images/about/testimonials/3.webp";
+import testimonial4 from "../assets/images/about/testimonials/4.webp";
 import UserDisplay from "../components/UserDisplay";
-import { handleLink } from "../utils/navigationUtils"
+import { handleLink } from "../utils/navigationUtils";
 const testimonials = [
     {
         "img": testimonial1,
