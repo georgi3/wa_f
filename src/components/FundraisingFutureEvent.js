@@ -23,7 +23,7 @@ export default function FundraisingFutureEvent({ frEvent, dateTimeDifference }){
                     </Col>
                     <Col className={""} sm={12} lg={6}>
                         <h2 className={"fw-light text-start"}><span className={"border-decor"}>Description:</span> </h2>
-                        <p className={"lead fs-4 "} style={{"textAlign": "justify"}}>Initial Text {frEvent?.description}</p>
+                        <p className={"lead fs-4 "} style={{"textAlign": "justify"}}>{frEvent?.description}</p>
                         <ul className={"lead fs-4  px-0"}>
                             <li className={"list-unstyled d-flex justify-content-between py-1 border-bottom"}><span>Date:</span> <span>{frEvent?.datetime ? format(parseISO(frEvent?.datetime), 'MMM dd, yyyy') : ''}</span></li>
                             <li className={"list-unstyled d-flex justify-content-between py-1 border-bottom"}><span>Time:</span> <span>{frEvent?.datetime ? format(parseISO(frEvent?.datetime), 'HH:mm') : ''}</span></li>
