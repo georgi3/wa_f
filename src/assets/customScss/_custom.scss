@@ -13,6 +13,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 @function tint-color($color, $weight) {
   @return mix(white, $color, $weight);
 }

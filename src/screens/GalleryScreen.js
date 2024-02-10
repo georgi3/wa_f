@@ -45,34 +45,33 @@ export function GalleryScreen(){
         <>
             <MyNavbar />
             <Container className={"my-3"} fluid>
-                <Link to={"/about"} className={"btn btn-lg btn-outline-info rounded m-3 p-1 mt-5 position-fixed"}
-                      style={{"z-index": "9"}}>
+                <Link to={"/about"} className={"btn btn-lg btn-outline-info rounded m-3 py-1 px-3 position-fixed"}
+                      style={{"zIndex": "9"}}>
                     <FontAwesomeIcon icon={faArrowLeft} /> Go Back
                 </Link>
-                <h1 className={"text-center text-info fw-light mb-5"}>WelfareAvenue Videos</h1>
+                <h1 className={"text-center text-info fw-light my-5"}>WelfareAvenue Videos</h1>
 
-                <Carousel data-interval="false"
-                          className={"m-lg-5 p-lg-5 mt-5 pt-3 d-flex justify-content-center align-content-center"}
+                <Carousel className={"m-lg-5 p-lg-5 mt-5 pt-3 d-flex justify-content-center align-content-center"}
                           style={{"height": "80vh"}}>
                     <Carousel.Item>
-                        <VideoLoader src={vid1} className={"img-fluid"} controls autoPlay preload loop />
+                        <VideoLoader src={vid1} className={"img-fluid"} controls autoPlay loop muted />
                         <Carousel.Caption className={"text-light"}>
-                            <h3>Optional Title</h3>
-                            <p>Optional Text</p>
+                            {/* <h3>Optional Title</h3>
+                            <p>Optional Text</p> */}
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <VideoLoader src={vid2} className={"img-fluid"} controls autoPlay preload loop />
+                        <VideoLoader src={vid2} className={"img-fluid"} controls autoPlay loop muted />
                         <Carousel.Caption className={"text-light"}>
-                            <h3>Dummy Title</h3>
-                            <p>Dummy Text</p>
+                            {/* <h3>Dummy Title</h3>
+                            <p>Dummy Text</p> */}
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <VideoLoader src={vid3} className={"img-fluid"} controls autoPlay preload loop />
+                        <VideoLoader src={vid3} className={"img-fluid"} controls autoPlay loop muted />
                         <Carousel.Caption className={"text-light"}>
-                            <h3>Dummier Title</h3>
-                            <p>Dummier Text</p>
+                            {/* <h3>Dummier Title</h3>
+                            <p>Dummier Text</p> */}
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
