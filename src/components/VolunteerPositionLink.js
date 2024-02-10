@@ -1,20 +1,27 @@
 import {useState} from "react";
 import VolunteerApplicationModal from "./VolunteerApplication";
 
-function VolunteerPositionLink({ positionName, positionsLeft, eventId }) {
+function VolunteerPositionLink({ positionName, positionsLeft, applicationCount, eventId }) {
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedPosition, setSelectedPosition] = useState(null);
-
+    const applicationLimits = {
+        "Drivers": 4,
+        "Cooks": 7,
+        "Servers": 8,
+        "Dishwashers": 4,
+        "Photographers": 4
+    }
+    const limitForPosition = applicationLimits[positionName];
     const handleApplyClick = (position) => {
         setSelectedPosition(position);
         setModalOpen(true);
     };
 
     return (
-        positionsLeft === 0 ? (
+        positionsLeft === 0 || applicationCount >= limitForPosition ?  (
             <div className="d-flex justify-content-between border-bottom py-2 text-decoration-none">
-                <span style={{ flex: "1" }}>{positionName}:</span>
-                <span className="text-muted light" style={{ flex: "1" }}>Positions Filled</span>
+                <span>{positionName}:</span>
+                <span className="text-muted light">Positions Filled</span>
             </div>
         ) : (
             <>

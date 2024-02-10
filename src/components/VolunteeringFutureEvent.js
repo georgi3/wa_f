@@ -40,6 +40,7 @@ export default function VolunteeringFutureEvent({ vEvent, dateTimeDifference, cl
                                         <li className={"list-unstyled"}>
                                             <VolunteerPositionLink
                                                 positionName="Drivers"
+                                                applicationCount={vEvent?.driver_count}
                                                 positionsLeft={vEvent?.drivers_left}
                                                 linkPath="/apply"
                                                 eventId={vEvent?.id}/>
@@ -47,6 +48,7 @@ export default function VolunteeringFutureEvent({ vEvent, dateTimeDifference, cl
                                         <li className={"list-unstyled"}>
                                             <VolunteerPositionLink
                                                 positionName="Cooks"
+                                                applicationCount={vEvent?.cook_count}
                                                 positionsLeft={vEvent?.cooks_left}
                                                 linkPath="/apply"
                                                 eventId={vEvent?.id}/>
@@ -54,6 +56,7 @@ export default function VolunteeringFutureEvent({ vEvent, dateTimeDifference, cl
                                         <li className={"list-unstyled"}>
                                             <VolunteerPositionLink
                                                 positionName="Servers"
+                                                applicationCount={vEvent?.server_count}
                                                 positionsLeft={vEvent?.servers_left}
                                                 linkPath="/apply"
                                                 eventId={vEvent?.id}/>
@@ -62,15 +65,17 @@ export default function VolunteeringFutureEvent({ vEvent, dateTimeDifference, cl
                                             <li className={"list-unstyled"}>
                                                 <VolunteerPositionLink
                                                     positionName="Dishwashers"
+                                                    applicationCount={vEvent?.dishwasher_count}
                                                     positionsLeft={vEvent?.dishwashers_left}
                                                     eventId={vEvent?.id}/>
                                             </li>
                                             : null
                                         }
-                                        {vEvent?.photographers_left !== 0 ?
+                                        {vEvent?.photographers_left !== 0 || vEvent?.photographer_count >= 3 ?
                                             <li className={"list-unstyled"}>
                                                 <VolunteerPositionLink
                                                     positionName="Photographers"
+                                                    applicationCount={vEvent?.photographer_count}
                                                     positionsLeft={vEvent?.photographers_left}
                                                     eventId={vEvent?.id}/>
                                             </li>

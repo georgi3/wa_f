@@ -142,18 +142,21 @@ function VolunteeringOptions(){
                                                             <VolunteerPositionLink
                                                                 positionName="Drivers"
                                                                 positionsLeft={e?.drivers_left}
+                                                                applicationCount={e?.driver_count}
                                                                 eventId={e?.id}/>
                                                         </li>
                                                         <li className={"list-unstyled"}>
                                                             <VolunteerPositionLink
                                                                 positionName="Cooks"
                                                                 positionsLeft={e?.cooks_left}
+                                                                applicationCount={e?.cook_count}
                                                                 eventId={e?.id}/>
                                                         </li>
                                                         <li className={"list-unstyled"}>
                                                             <VolunteerPositionLink
                                                                 positionName="Servers"
                                                                 positionsLeft={e?.servers_left}
+                                                                applicationCount={e?.server_count}
                                                                 eventId={e?.id}/>
                                                         </li>
                                                         {e?.dishwashers_left !== 0 ?
@@ -161,15 +164,17 @@ function VolunteeringOptions(){
                                                                 <VolunteerPositionLink
                                                                     positionName="Dishwashers"
                                                                     positionsLeft={e?.dishwashers_left}
+                                                                    applicationCount={e?.dishwasher_count}
                                                                     eventId={e?.id}/>
                                                             </li>
                                                             : null
                                                         }
-                                                        {e?.photographers_left !== 0 ?
+                                                        {e?.photographers_left !== 0 || e?.photographer_count >= 3 ?
                                                             <li className={"list-unstyled"}>
                                                                 <VolunteerPositionLink
                                                                     positionName="Photographers"
                                                                     positionsLeft={e?.photographers_left}
+                                                                    applicationCount={e?.photographer_count}
                                                                     eventId={e?.id}/>
                                                             </li>
                                                             : null
