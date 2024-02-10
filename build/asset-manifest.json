@@ -47,12 +47,12 @@
     "static/media/YMCA.svg": "/static/react/static/media/YMCA.84af209acbe2272c8a2f4110ea66b6d6.svg",
     "static/media/unknown_user_icon.svg": "/static/react/static/media/unknown_user_icon.8676d62f509ed06117e62e60dfaaff51.svg",
     "index.html": "/static/react/index.html",
-    "main.5932825d.css.map": "/static/react/static/css/main.5932825d.css.map",
-    "main.6223c3c5.js.map": "/static/react/static/js/main.6223c3c5.js.map",
-    "592.bf6ca574.chunk.js.map": "/static/react/static/js/592.bf6ca574.chunk.js.map"
+    "main.defd45aa.css.map": "/static/react/static/css/main.defd45aa.css.map",
+    "main.6e2d1a9d.js.map": "/static/react/static/js/main.6e2d1a9d.js.map",
+    "787.cda612ba.chunk.js.map": "/static/react/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5932825d.css",
-    "static/js/main.6223c3c5.js"
+    "static/css/main.defd45aa.css",
+    "static/js/main.6e2d1a9d.js"
   ]
 }
