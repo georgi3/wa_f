@@ -33,6 +33,7 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
     const [phone, setPhone] = useState(user?.phone || '');
     const [organization, setOrganization] = useState(user?.organization || '');
     const [address, setAddress] = useState(user?.address || '');
+    const [foodDroppedOff, setFoodDroppedOff] = useState(false);
     const [carType, setCarType] = useState(user?.carType || '');
     const [zipCode, setZipCode] = useState(
         (user?.zipCode) ? (`${user?.zipCode}`) : '');
@@ -117,7 +118,8 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
                 address: address,
                 car_type: carType,
                 zip_code: zipCode,
-                vol_position: positionName
+                vol_position: positionName,
+                food_drop_off: foodDroppedOff
             });
             setApplicationSubmitted(true);
             updateUser({
@@ -232,6 +234,18 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
                                 isInvalid={!!zipCodeError}
                                 required/>
                             <Form.Control.Feedback type="invalid">{zipCodeError}</Form.Control.Feedback>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label className="mb-0">Will you drop off the food? </Form.Label>
+                            <Form.Check
+                                type="checkbox"
+                                className={'p-2'}
+                                custom
+                                style={{ display: 'inline-block', transform: 'scale(1.2)' }}
+                                checked={foodDroppedOff}
+                                onChange={e => setFoodDroppedOff(e.target.checked)}
+                                id="foodDroppedOffCheckbox"
+                            />
                         </Form.Group>
                         </>
                         ) : null
