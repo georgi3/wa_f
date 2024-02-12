@@ -18,7 +18,7 @@ function VolunteerPositionLink({ positionName, positionsLeft, applicationCount, 
     };
 
     return (
-        positionsLeft === 0 || applicationCount >= limitForPosition ?  (
+        positionsLeft <= 0 || applicationCount >= limitForPosition ?  (
             <div className="d-flex justify-content-between border-bottom py-2 text-decoration-none">
                 <span>{positionName}:</span>
                 <span className="text-muted light">Positions Filled</span>
