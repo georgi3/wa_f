@@ -3,10 +3,15 @@ import {Container, Col, Row} from "react-bootstrap"
 import MyNavbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import {Link} from "react-router-dom";
+import { Helmet } from 'react-helmet';
 
 export default function DonateScreen(){
     return (
         <>
+            <Helmet>
+                <script type="text/javascript" defer src="https://donorbox.org/install-popup-button.js"> </script>
+                <script type="text/javascript" defer src="https://donorbox.org/install-popup-button.js"> </script>
+            </Helmet>
             <MyNavbar />
             <Container className={"mx-0 px-0"} fluid>
                 <Container>
@@ -15,7 +20,7 @@ export default function DonateScreen(){
                         <Row className={"w-100 d-flex"}>
                             <Col  sm={12} lg={6} className={""}>
                                 <div className={"w-100"}>
-                                    <Link className={"w-100 btn btn-lg btn-outline-info m-1"} to={"#"}>Donate Funds</Link>
+                                    <Link className={"w-100 btn btn-lg btn-outline-info m-1 dbox-donation-button donate-btn"} to={"https://donorbox.org/tis-the-season-of-giving-1"}>Donate Funds</Link>
                                 </div>
                             </Col>
                             <Col  sm={12} lg={6} className={""}>
