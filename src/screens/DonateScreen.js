@@ -20,7 +20,7 @@ export default function DonateScreen(){
                         <Row className={"w-100 d-flex"}>
                             <Col  sm={12} lg={6} className={""}>
                                 <div className={"w-100"}>
-                                    <Link className={"w-100 btn btn-lg btn-outline-info m-1 dbox-donation-button donate-btn"} to={"https://donorbox.org/tis-the-season-of-giving-1"}>Donate Funds</Link>
+                                    <Link className={"w-100 btn btn-lg btn-info m-1 dbox-donation-button donate-btn"} to={"https://donorbox.org/tis-the-season-of-giving-1"}>Donate Funds</Link>
                                 </div>
                             </Col>
                             <Col  sm={12} lg={6} className={""}>
