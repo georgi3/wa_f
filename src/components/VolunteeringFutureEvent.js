@@ -42,6 +42,7 @@ export default function VolunteeringFutureEvent({ vEvent, dateTimeDifference, cl
                                                 positionName="Drivers"
                                                 applicationCount={vEvent?.driver_count}
                                                 positionsLeft={vEvent?.drivers_left}
+                                                positionLimit={vEvent?.driver_num}
                                                 linkPath="/apply"
                                                 eventId={vEvent?.id}/>
                                         </li>
@@ -50,6 +51,7 @@ export default function VolunteeringFutureEvent({ vEvent, dateTimeDifference, cl
                                                 positionName="Cooks"
                                                 applicationCount={vEvent?.cook_count}
                                                 positionsLeft={vEvent?.cooks_left}
+                                                positionLimit={vEvent?.cook_num}
                                                 linkPath="/apply"
                                                 eventId={vEvent?.id}/>
                                         </li>
@@ -58,6 +60,7 @@ export default function VolunteeringFutureEvent({ vEvent, dateTimeDifference, cl
                                                 positionName="Servers"
                                                 applicationCount={vEvent?.server_count}
                                                 positionsLeft={vEvent?.servers_left}
+                                                positionLimit={vEvent?.servers_num}
                                                 linkPath="/apply"
                                                 eventId={vEvent?.id}/>
                                         </li>
@@ -67,6 +70,7 @@ export default function VolunteeringFutureEvent({ vEvent, dateTimeDifference, cl
                                                     positionName="Dishwashers"
                                                     applicationCount={vEvent?.dishwasher_count}
                                                     positionsLeft={vEvent?.dishwashers_left}
+                                                    positionLimit={vEvent?.dishwashers_num}
                                                     eventId={vEvent?.id}/>
                                             </li>
                                             : null
@@ -77,6 +81,7 @@ export default function VolunteeringFutureEvent({ vEvent, dateTimeDifference, cl
                                                     positionName="Photographers"
                                                     applicationCount={vEvent?.photographer_count}
                                                     positionsLeft={vEvent?.photographers_left}
+                                                    positionLimit={vEvent?.photographers_num}
                                                     eventId={vEvent?.id}/>
                                             </li>
                                             : null

@@ -143,6 +143,7 @@ function VolunteeringOptions(){
                                                                 positionName="Drivers"
                                                                 positionsLeft={e?.drivers_left}
                                                                 applicationCount={e?.driver_count}
+                                                                positionLimit={e?.driver_num}
                                                                 eventId={e?.id}/>
                                                         </li>
                                                         <li className={"list-unstyled"}>
@@ -150,6 +151,7 @@ function VolunteeringOptions(){
                                                                 positionName="Cooks"
                                                                 positionsLeft={e?.cooks_left}
                                                                 applicationCount={e?.cook_count}
+                                                                positionLimit={e?.cook_num}
                                                                 eventId={e?.id}/>
                                                         </li>
                                                         <li className={"list-unstyled"}>
@@ -157,6 +159,7 @@ function VolunteeringOptions(){
                                                                 positionName="Servers"
                                                                 positionsLeft={e?.servers_left}
                                                                 applicationCount={e?.server_count}
+                                                                positionLimit={e?.servers_num}
                                                                 eventId={e?.id}/>
                                                         </li>
                                                         {e?.dishwashers_left !== 0 ?
@@ -165,6 +168,7 @@ function VolunteeringOptions(){
                                                                     positionName="Dishwashers"
                                                                     positionsLeft={e?.dishwashers_left}
                                                                     applicationCount={e?.dishwasher_count}
+                                                                    positionLimit={e?.dishwashers_num}
                                                                     eventId={e?.id}/>
                                                             </li>
                                                             : null
@@ -175,6 +179,7 @@ function VolunteeringOptions(){
                                                                     positionName="Photographers"
                                                                     positionsLeft={e?.photographers_left}
                                                                     applicationCount={e?.photographer_count}
+                                                                    positionLimit={e?.photographers_num}
                                                                     eventId={e?.id}/>
                                                             </li>
                                                             : null
