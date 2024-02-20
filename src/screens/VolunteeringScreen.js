@@ -105,7 +105,13 @@ function VolunteeringOptions(){
             setEvents(data);
         })()
     }, []);
-
+    if (vEvents.length === 0) {
+        return (
+            <Container className={"d-flex justify-content-center align-content-center my-5 mx-0 px-lg-1"} fluid>
+                <p>Currently no upcoming events are displayed. Please check later!</p>
+            </Container>
+        )
+    }
     return(
         <Container className={"d-flex justify-content-center flex-wrap my-5 mx-0 px-lg-1"} fluid>
             {
