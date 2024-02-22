@@ -21,7 +21,7 @@ export default function DonateScreen(){
                             <Col  sm={12} lg={6} className={""}>
                                 <div className={"w-100"}>
                                     <Link className={"w-100 btn btn-lg btn-info m-1 dbox-donation-button donate-btn"}
-                                          to={"https://www.welfareavenue.com/admin/api/volunteeringevents/27/change/"}>Donate Funds</Link>
+                                          to={"https://donorbox.org/fundraise4welfareavenue?default_interval=m"}>Donate Funds</Link>
                                 </div>
                             </Col>
                             <Col  sm={12} lg={6} className={""}>
