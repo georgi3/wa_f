@@ -10,8 +10,7 @@ import SignUpScreen from "./screens/UserAuth/SignUpScreen";
 import SignInScreen from "./screens/UserAuth/SignInScreen";
 import PressScreen from "./screens/PressScreen";
 import DonateScreen from "./screens/DonateScreen";
-import ParticipationConfirmedScreen from "./screens/ParticipationConfirmedScreen";
-import ParticipationConfirmationFailedScreen from "./screens/ParticipationConfirmationFailedScreen";
+import ConfirmParticipationScreen from "./screens/ConfirmParticipationScreen";
 import VolunteeringScreen from "./screens/VolunteeringScreen";
 import ActivityScreen from "./screens/ActivityScreen";
 import WeeklyVolunteering from "./screens/WeeklyVolunteering";
@@ -60,8 +59,7 @@ function App() {
                       <Route path="/donate" element={<DonateScreen />}/>
                       <Route path="/signup" element={<SignUpScreen  />}/>
                       <Route path="/signin" element={<SignInScreen  />}/>
-                      <Route path="/participation-confirmed" element={<ParticipationConfirmedScreen  />}/>
-                      <Route path="/participation-confirmation-failed" element={<ParticipationConfirmationFailedScreen  />}/>
+                      <Route path="/confirm-participation" element={<ConfirmParticipationScreen  />}/>
                       <Route path="/user-profile" element={<UserProfileScreen />}>
                           <Route path=":id" element={<UserProfileScreen />} />
                       </Route>
