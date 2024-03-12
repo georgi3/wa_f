@@ -4,10 +4,14 @@ import {useAuth} from "../context/AuthContext";
 import {useLocation} from "react-router-dom";
 import NotAuthenticatedPrompt from "./NotAuthenticatedPromt";
 import {apiCall} from "../utils/apiUtils";
+import { Helmet } from 'react-helmet';
 
 function VolunteerNotice(){
     return (
         <Container className={"bg-primary-subtle p-5"}>
+            <Helmet>
+                <script>{`gtag('event', 'conversion', {'send_to': 'AW-11436485356/QySBCK6j6IoZEOzVq80q'});`}</script>
+            </Helmet>
             <h2 className={"text-secondary fw-bold text-center"}>Thank You for Applying:</h2>
             <Container className={"d-flex"}>
                 <p className={"lead text-dark"} >
