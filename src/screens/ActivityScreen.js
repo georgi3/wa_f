@@ -1,7 +1,7 @@
 import React from "react";
 import {Container, Col, Row} from "react-bootstrap";
 import MyNavbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import weeklyEvent from "../assets/images/activity/weeklyEvent.png";
 import collabs from "../assets/images/activity/collabs.png";
 import clothesDonation from "../assets/images/activity/clothesDonation.png";

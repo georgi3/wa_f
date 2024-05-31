@@ -1,7 +1,7 @@
 import React from "react";
 import {Container, Col, Row} from "react-bootstrap";
 import MyNavbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 export default function PressScreen(){
 
     return (

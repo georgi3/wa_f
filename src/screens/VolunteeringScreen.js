@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Col, Container, Row} from "react-bootstrap";
 import MyNavbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import {Link} from "react-router-dom";
 import volunteeringHero from "../assets/images/volunteering/hero/volunteeringHero.jpg"
 import {HashLink} from "react-router-hash-link";

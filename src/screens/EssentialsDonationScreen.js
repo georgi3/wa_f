@@ -1,7 +1,7 @@
 import React from "react";
 import {Container, Col, Row, Accordion} from "react-bootstrap";
 import MyNavbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import essentialsDonations from "../assets/images/activity/clothesDonation.png"
 import DoubleColumn from "../components/DoubleColumn";
 

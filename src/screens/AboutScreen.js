@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MyNavbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import fontImage from "../assets/images/about/front.jpg";
 import testimonial1 from "../assets/images/about/testimonials/1.webp";
 import testimonial2 from "../assets/images/about/testimonials/2.webp";

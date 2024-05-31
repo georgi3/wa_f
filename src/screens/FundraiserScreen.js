@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Card, Col, Container, Row} from "react-bootstrap";
 import MyNavbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import {Link} from "react-router-dom";
 import fundRaisingImg from "../assets/images/activity/fundRaisers.png"
 import {format, parseISO} from "date-fns";

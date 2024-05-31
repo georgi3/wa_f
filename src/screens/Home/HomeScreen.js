@@ -12,7 +12,7 @@ import SimpleCloud from "../../components/WordCloud";
 import {EventTabs} from "../../components/EventTabs";
 import {OurFocus} from "../../components/OurFocus";
 import {Partners} from "../../components/Partners/Partners";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 
 import slide1 from "../../assets/images/home/slide1.jpg";
 import slide2 from "../../assets/images/home/slide2.jpg";

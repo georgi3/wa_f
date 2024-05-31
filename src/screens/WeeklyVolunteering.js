@@ -3,7 +3,7 @@ import {Container, Col, Row, Tabs, Tab, Accordion} from "react-bootstrap";
 import MyNavbar from "../components/Navbar";
 import {Link} from "react-router-dom";
 import weeklyVolunteeringImg from "../assets/images/activity/weeklyEvent.png"
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import volunteerServer from "../assets/images/volunteering/server.png";
 import volunteerDriver from "../assets/images/volunteering/driver.webp";
 import volunteerCook from "../assets/images/volunteering/cook.webp";

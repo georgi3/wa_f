@@ -1,7 +1,7 @@
 import React from "react";
 import {Container, Col, Row, Carousel} from "react-bootstrap";
 import MyNavbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import {HashLink} from "react-router-hash-link";
 import clubImg1 from "../assets/images/activity/club_volunteering/1.JPG";
 import clubVid from "../assets/images/activity/club_volunteering/2.mp4";
