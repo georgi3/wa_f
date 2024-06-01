@@ -4,6 +4,7 @@ import {faInstagram, faTiktok, faLinkedin, faGoogle} from "@fortawesome/free-bra
 import SocialMediaLinks from "../SocialMediaLinks";
 import {useAuth} from "../../context/AuthContext";
 import ContactForm from '../ContactForm/ContactForm';
+import NewsletterForm from '../NewsletterForm/NewsletterForm';
 
 import './Footer.scss';
 
@@ -34,11 +35,6 @@ const socialMedias = [
     },
 ];
 
-function newsletterSubmit(e) {
-    e.preventDefault();
-    console.log("Not implemented");
-}
-
 export default function Footer() {
     const { user } = useAuth();
 
@@ -50,7 +46,7 @@ export default function Footer() {
                     <ContactInfo />
 
                     <h3 className="text-light my-3 fs-2">Subscribe to our newsletter</h3>
-                    <NewsletterForm />
+                    <NewsletterForm style={{"padding": "0 40px"}} />
                 </Col>
                 <Col sm={12} md={12} lg={6}>
                     <h3 className="text-light my-3 fs-2">Get in Touch</h3>
@@ -89,19 +85,6 @@ function FooterLine() {
     return (
         <Container  fluid>
             <p className="text-center text-light align-middle my-1 py-2">Copyright &copy; Welfare Avenue {new Date().getFullYear()}</p>
-        </Container>
-    )
-}
-
-function NewsletterForm() {    
-    return (
-        <Container className="newsletter-form">
-            <div className="form__group input">
-                <input type="email" className="form__input" placeholder="Email address" disabled/>
-            </div>
-            <div className="form__group button">
-                <input type="submit" className="form__btn" value="Subscribe" onClick={newsletterSubmit} disabled/>
-            </div>
         </Container>
     )
 }

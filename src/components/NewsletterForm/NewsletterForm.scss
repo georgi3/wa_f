@@ -1,0 +1,110 @@
+.newsletter-form {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    justify-content: center;
+
+    @media screen and (max-width: 980px) {
+        padding: 0 1rem;
+    }
+
+    .form__group {
+        margin-bottom: 1rem;
+
+        &.button {
+            grid-column: span 4;
+        }
+
+        &.input {
+            grid-column: span 8;
+        }
+
+        .form__input {
+            width: 100%;
+
+            border: 1px solid #fff;
+            border-right: 0;
+            color: #fff;
+            background-color: transparent;
+            border-radius: 8px 0 0 8px;
+
+            padding: 1rem 1.2rem;
+
+            font-size: 1rem;
+            font-weight: 300;
+
+            outline: none;
+
+            &::placeholder {
+                color: #fff;
+            }
+
+            &:disabled {
+                background-color: #31183c;
+                cursor: not-allowed;
+            }
+        }
+
+        .form__btn {
+            width: 100%;
+
+            border: 1px solid #fff;
+            border-radius: 0 8px 8px 0;
+
+            padding: 1rem 1.2rem;
+            
+            background-color: transparent;
+            color: #fff;
+
+            font-size: 1rem;
+            font-weight: 300;
+
+            cursor: pointer;
+
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                background-color: #31183c;
+            }
+
+            &:disabled {
+                background-color: #31183c;
+                cursor: not-allowed;
+            }
+        }
+    }
+}
+
+.newsletter-form.light {
+    .form__group {
+        .form__input {
+            background-color: #5e3b6c;
+            color: white;
+
+            &::placeholder {
+                color: white;
+            }
+
+            &:focus {
+                border: 1px solid #5e3b6c;
+            }
+
+            &:disabled {
+                background-color: #31183c;
+                cursor: not-allowed;
+            }
+        }
+        .form__btn {
+            background-color: #5e3b6c;
+            color: #ffffff;
+
+            &:hover {
+                background-color: #31183c;
+            }
+
+            &:disabled {
+                background-color: #31183c;
+                cursor: not-allowed;
+            }
+        }
+    }
+}

@@ -10,7 +10,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import ImageListGallery from "../components/gallery/ImageListGallery";
 
 import { quantum } from 'ldrs'
-import { VideoLoader } from "../components/VideoLoader";
+import VideoLoader from "../components/VideoLoader";
 
 quantum.register()
 

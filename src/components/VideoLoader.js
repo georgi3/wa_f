@@ -4,7 +4,7 @@ import { quantum } from 'ldrs';
 quantum.register();
 
 // Create a video loader component
-export function VideoLoader({ src, ...props }) {
+export default function VideoLoader({ src, ...props }) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 

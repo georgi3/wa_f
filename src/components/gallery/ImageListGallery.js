@@ -9,7 +9,7 @@ import {
 import './gallery.css';
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageList from "@mui/material/ImageList";
-import { ImageLoader } from '../ImageLoader';
+import ImageLoader from '../ImageLoader';
 
 export default function ImageListGallery({galleryImages}){
     const [slideNumber, setSlideNumber] = useState(0)
