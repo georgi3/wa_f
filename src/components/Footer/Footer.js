@@ -42,16 +42,16 @@ export default function Footer() {
         <Container className="transitioning-background-primary fs-6" fluid>
             <Row className="py-3">
                 <Col sm={12} md={12} lg={6}>
-                    <h3 className="text-light my-3 fs-2">Contact Information</h3>
-                    <ContactInfo />
-
-                    <h3 className="text-light my-3 fs-2">Subscribe to our newsletter</h3>
                     <NewsletterForm style={{"padding": "0 40px"}} />
                 </Col>
                 <Col sm={12} md={12} lg={6}>
                     <h3 className="text-light my-3 fs-2">Get in Touch</h3>
                     <ContactForm user={user}/>
                 </Col>
+            </Row>
+            <Row>
+                <h3 className="text-light my-3 fs-2">Contact Information</h3>
+                <ContactInfo />
             </Row>
             <Container className={"text-light"}>
                 <SocialMediaLinks socials={socialMedias}/>
@@ -68,7 +68,7 @@ export default function Footer() {
 
 function ContactInfo() {
     return (
-        <Container className="text-light container-md px-3 py-5 px-sm-0" fluid>
+        <Container className="text-light container-sm px-3 py-6 px-sm-0">
             <Row className="p-1 pb-3 px-sm-0 text-left">
                 <Col>Telephone:</Col>
                 <Col><a href="tel:+1-438-808-7754" className="link-light">+1-(438)-808-7754</a></Col>

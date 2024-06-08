@@ -19,13 +19,8 @@ export default function NewsletterForm({...props}) {
     }
     
     return (
-        <Container className={"newsletter-form " + props.dataTheme} {...props}>
-            <div className="form__group input">
-                <input type="email" className={"form__input"} placeholder="Email address" disabled/>
-            </div>
-            <div className="form__group button">
-                <input type="submit" className={"form__btn"} value="Subscribe" onClick={newsletterSubmit} disabled/>
-            </div>
-        </Container>
+        <div class="keela-embed-form" data-src="https://signup-can.keela.co/embed/2ZN6rsbq4jaTvHGt6">
+            <div class="keela-loading"><div></div><div></div><div></div><div></div></div>
+        </div>
     )
 }

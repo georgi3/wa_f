@@ -5,7 +5,6 @@ import MyNavbar from "../../components/Navbar";
 import Footer from "../../components/Footer/Footer";
 import ImageLoader from "../../components/ImageLoader";
 import img1 from '../../assets/images/landingPage/landing-page-pic1.jpg';
-import NewsletterForm from "../../components/NewsletterForm/NewsletterForm";
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -41,8 +40,6 @@ export default function PostDonationScreen (){
                                 </a>
                             </Container>
                         </Container>
-                        <p>Stay connected with us by signing up for our newsletters.</p>
-                        <NewsletterForm dataTheme={"light"} />
                     </div>
                 </Container>
             </Container>
