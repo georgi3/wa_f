@@ -133,6 +133,8 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
                 carType: carType,
                 zipCode: zipCode
             });
+
+            window.gtag('event', 'volunteer-signup' , { 'event_category': 'engagement', 'event_label': 'volunteer-signup', 'value': '1' });
         } catch (error) {
             console.error(error.message || error);
             setErrorMessage(error.message || 'Unknown error');

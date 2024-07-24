@@ -27,6 +27,7 @@ import NotFound from "./components/404";
 import LandingScreen from "./screens/LandingScreen/LandingScreen";
 import PostDonationScreen from "./screens/PostDonationScreen/PostDonationScreen";
 import PostNewsletterScreen from "./screens/PostNewsletterScreen/PostNewsletterScreen";
+import PostVolunteerScreen from "./screens/PostVolunteerScreen/PostVolunteerScreen";
 
 function ScrollToTop() {
     const { pathname } = useLocation();
@@ -61,6 +62,7 @@ function App() {
                       <Route path="/donate" element={<DonateScreen />}/>
                       <Route path="/thank-you" element={<PostDonationScreen />}/>
                       <Route path="/thank-you-newsletter" element={<PostNewsletterScreen />}/>
+                      {/* <Route path="/thank-you-volunteer" element={<PostVolunteerScreen />}/> */}
                       <Route path="/signup" element={<SignUpScreen  />}/>
                       <Route path="/signin" element={<SignInScreen  />}/>
                       <Route path="/confirm-participation" element={<ConfirmParticipationScreen  />}/>

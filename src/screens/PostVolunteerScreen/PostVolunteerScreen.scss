@@ -1,0 +1,104 @@
+@font-face {
+    font-family: 'NexaBold';
+    src:url('../../assets/fonts/NexaBold.ttf.woff') format('woff'),
+        url('../../assets/fonts/NexaBold.ttf.svg#NexaBold') format('svg'),
+        url('../../assets/fonts/NexaBold.ttf.eot'),
+        url('../../assets/fonts/NexaBold.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+.post-volunteer {
+    padding: 10% 0;
+
+    .little-box {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+
+        padding: 0;
+
+        .volunteer-left-part {
+            width: 40%;
+            max-height: 450px;
+
+            overflow: hidden;
+
+            .volunteer-image {
+                height: fill;
+                max-height: 450px;
+                object-fit: cover;
+            }
+        }
+
+        .volunteer-right-part {
+            width: 60%;
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            h3 {
+                font-family: 'NexaBold';
+                font-size: 1.5em;
+                margin-bottom: 10px;
+
+                padding: 20px 0;
+            }
+    
+            p {
+                font-family: 'NexaBold';
+                font-size: 1em;
+                margin-bottom: 10px;
+            }
+
+            .share-volunteer .social-media-icons {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                width: fill;
+
+                gap: 10px;
+
+                padding: 30px 0;
+
+                a {
+                    padding: 10px 20px;
+                    width: 25%;
+                    text-align: center;
+
+                    border-radius: 5px;
+
+                    background-color: #5e3b6c;
+
+                    &:hover {
+                        background-color: #462255;
+                    }
+
+                    i {
+                        color: #fff;
+                        font-size: 1.5em;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+
+            .volunteer-left-part {
+                width: 100%;
+                max-height: 200px;
+            }
+
+            .volunteer-right-part {
+                width: 100%;
+            }
+        }
+    }
+}
