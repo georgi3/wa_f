@@ -23,7 +23,7 @@ const testimonials = [
     {
         "img": testimonial1,
         "url": "../assets/images/about/testimonials/1.webp",
-        "name": "Sewon,David",
+        "name": "Sewon, David",
         "position": "Volunteer Passenger",
         "testimony": "\"I had such an amazing experience with Welfare Avenue! In fact, it is such an outstanding opportunity to spread generosity and happiness towards the ones in need. I can safely say that I’m extremely proud to be part of this organization, and to be able to support others in such unprecedented times. I certainly had the best volunteering experience with Welfare Avenue, and I would totally recommend it!\""
     },

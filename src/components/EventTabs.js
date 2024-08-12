@@ -2,6 +2,7 @@ import React, {useMemo, useState} from "react";
 import {Tab, Tabs} from 'react-bootstrap';
 import {EventsCarousel} from "./EventsCarousel";
 import { useLocation, useNavigate } from 'react-router-dom';
+import { set } from "date-fns";
 
 export function EventTabs({ events }) {
     const location = useLocation();
@@ -30,7 +31,7 @@ export function EventTabs({ events }) {
     return (
         <Tabs
             activeKey={activeTab}
-            className="mb-3 d-flex justify-content-between event-tabs"
+            className="mb-3 d-flex justify-content-between event-tabs gap-3"
             justify
             onSelect={handleTabChange}
         >

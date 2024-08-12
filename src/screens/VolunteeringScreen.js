@@ -77,6 +77,7 @@ function HeroOverlay({backgroundImage}) {
 async function fetchEvents() {
     const response = await fetch(`${process.env.REACT_APP_API_URL}/api/events/volunteering`);
     const data = await response.json();
+
     const currentDate = new Date();
 
     // Filter out past events
@@ -98,11 +99,17 @@ async function fetchEvents() {
 
 function VolunteeringOptions(){
     const [vEvents, setEvents] = useState([]);
+    const [vCities, setCities] = useState([]);
+    const [city, setCity] = useState("");
 
     useEffect(() => {
         (async() => {
             const data = await fetchEvents();
             setEvents(data);
+            setCity(data[0]?.city || "Montreal");
+            const Cities = data.map(event => event.city);
+            const uniqueCities = [...new Set(Cities)];
+            setCities(uniqueCities);
         })()
     }, []);
     if (vEvents.length === 0) {
@@ -112,97 +119,174 @@ function VolunteeringOptions(){
             </Container>
         )
     }
-    return(
-        <Container className={"d-flex justify-content-center flex-wrap my-5 mx-0 px-lg-1"} fluid>
-            {
-                vEvents.map(e => {
-                    const currentDate = new Date();
-                    const eventDate = new Date(e?.datetime)
-                    // Subtract 4 days from the event date
-                    const dateFourDaysBeforeEvent = new Date(eventDate);
-                    dateFourDaysBeforeEvent.setDate(eventDate.getDate() - 4);
-                    const closeApplication = dateFourDaysBeforeEvent <= currentDate;
-                    return(
-                        <Col lg={4} md={6} sm={12}
-                             className={"align-content-center justify-content-center text-center"}
-                             key={e?.id}>
-                            <div className={"border m-1"}>
-                                <Container className={"p-1"}>
-                                    <Link onClick={handleLink} to={`/activity/volunteer/${e?.id}`} as={"h2"} className={"d-flex justify-content-center  fs-3 text-decoration-none fw-light border btn btn-outline-info"}>
-                                        {e?.title}
-                                    </Link>
-                                    <p className={"text-dark text-center py-2 fs-4 fw-light"}>{e.datetime ? format(parseISO(e.datetime), 'MMM/dd/yyyy') : ''}</p>
-                                    <Container className={"d-flex justify-content-between"}>
-                                        <Container>
-                                            <ul className={"lead fs-5  px-0"}>
-                                                <li className={"list-unstyled d-flex justify-content-between py-0 border-bottom"}><span>Day:</span> <span>{e.datetime ? format(parseISO(e.datetime), 'eeee') : ''}</span></li>
-                                                <li className={"list-unstyled d-flex justify-content-between py-0 border-bottom"}><span>Time:</span> <span>{e.datetime ? format(parseISO(e.datetime), 'HH:mm') : ''}</span></li>
-                                                <li className={"list-unstyled d-flex justify-content-between py-0 border-bottom"}><span>Location:</span> <span>{e?.location}</span></li>
-                                                {closeApplication === true ? (
-                                                    <div className={"text-center py-3"}>Application Process is Closed</div>
-
-                                                ) : (
-                                                    <>
-                                                        <li className={"list-unstyled d-flex justify-content-between py-0 fw-normal"}><span>Required Volunteers:</span></li>
-                                                        <li className={"list-unstyled"}>
-                                                            <VolunteerPositionLink
-                                                                positionName="Drivers"
-                                                                positionsLeft={e?.drivers_left}
-                                                                applicationCount={e?.driver_count}
-                                                                positionLimit={e?.driver_num}
-                                                                eventId={e?.id}/>
-                                                        </li>
-                                                        <li className={"list-unstyled"}>
-                                                            <VolunteerPositionLink
-                                                                positionName="Cooks"
-                                                                positionsLeft={e?.cooks_left}
-                                                                applicationCount={e?.cook_count}
-                                                                positionLimit={e?.cook_num}
-                                                                eventId={e?.id}/>
-                                                        </li>
-                                                        <li className={"list-unstyled"}>
-                                                            <VolunteerPositionLink
-                                                                positionName="Servers"
-                                                                positionsLeft={e?.servers_left}
-                                                                applicationCount={e?.server_count}
-                                                                positionLimit={e?.servers_num}
-                                                                eventId={e?.id}/>
-                                                        </li>
-                                                        {e?.dishwashers_left !== 0 ?
-                                                            <li className={"list-unstyled"}>
-                                                                <VolunteerPositionLink
-                                                                    positionName="Dishwashers"
-                                                                    positionsLeft={e?.dishwashers_left}
-                                                                    applicationCount={e?.dishwasher_count}
-                                                                    positionLimit={e?.dishwashers_num}
-                                                                    eventId={e?.id}/>
-                                                            </li>
-                                                            : null
-                                                        }
-                                                        {e?.photographers_left !== 0 || e?.photographer_count >= 3 ?
-                                                            <li className={"list-unstyled"}>
-                                                                <VolunteerPositionLink
-                                                                    positionName="Photographers"
-                                                                    positionsLeft={e?.photographers_left}
-                                                                    applicationCount={e?.photographer_count}
-                                                                    positionLimit={e?.photographers_num}
-                                                                    eventId={e?.id}/>
-                                                            </li>
-                                                            : null
-                                                        }
-                                                    </>
-                                                )}
-                                            </ul>
-                                        </Container>
-                                    </Container>
-                                </Container>
-                            </div>
-                        </Col>
-                    )
-                })
-            }
-        </Container>
-    )
+    return (
+      <Container
+        className={"d-flex justify-content-center flex-wrap my-5 mx-0 px-lg-1"}
+        fluid
+      >
+        <ul
+          className={"mb-3 nav nav-tabs d-flex justify-content-center w-100"}
+          role="tablist"
+        >
+            {vCities.map((cit) => {
+                return (
+                    <li className={"nav-item flex-fill justify-content-center align-center text-center m-2"} role="presentation" key={cit} style={{maxWidth: "550px"}}>
+                        <button
+                            type="button"
+                            className={`fs-3 text-decoration-none fw-light border btn btn-outline-info py-2 px-5 w-100 ${ city === cit ? "active" : ""}`}
+                            onClick={() => setCity(cit)}
+                        >
+                            {cit}
+                        </button>
+                    </li>
+                )
+            })}
+        </ul>
+        {vEvents.map((e) => {
+          if (e.city !== city) return;
+          const currentDate = new Date();
+          const eventDate = new Date(e?.datetime);
+          // Subtract 4 days from the event date
+          const dateFourDaysBeforeEvent = new Date(eventDate);
+          dateFourDaysBeforeEvent.setDate(eventDate.getDate() - 4);
+          const closeApplication = dateFourDaysBeforeEvent <= currentDate;
+          return (
+            <Col
+              lg={4}
+              md={6}
+              sm={12}
+              className={
+                "align-content-center justify-content-center text-center flex-fill my-2"
+              }
+              style={{ maxWidth: "550px" }}
+              key={e?.id}
+            >
+              <div className={"border m-1 h-100"}>
+                <Container className={"p-1"}>
+                  <Link
+                    onClick={handleLink}
+                    to={`/activity/volunteer/${e?.id}`}
+                    as={"h2"}
+                    className={
+                      "d-flex justify-content-center  fs-3 text-decoration-none fw-light border btn btn-outline-info"
+                    }
+                  >
+                    {e?.title}
+                  </Link>
+                  <p className={"text-dark text-center py-2 fs-4 fw-light"}>
+                    {e.datetime
+                      ? format(parseISO(e.datetime), "MMM/dd/yyyy")
+                      : ""}
+                  </p>
+                  <Container className={"d-flex justify-content-between"}>
+                    <Container>
+                      <ul className={"lead fs-5  px-0"}>
+                        <li
+                          className={
+                            "list-unstyled d-flex justify-content-between py-0 border-bottom"
+                          }
+                        >
+                          <span>Day:</span>{" "}
+                          <span>
+                            {e.datetime
+                              ? format(parseISO(e.datetime), "eeee")
+                              : ""}
+                          </span>
+                        </li>
+                        <li
+                          className={
+                            "list-unstyled d-flex justify-content-between py-0 border-bottom"
+                          }
+                        >
+                          <span>Time:</span>{" "}
+                          <span>
+                            {e.datetime
+                              ? format(parseISO(e.datetime), "HH:mm")
+                              : ""}
+                          </span>
+                        </li>
+                        <li
+                          className={
+                            "list-unstyled d-flex justify-content-between py-0 border-bottom"
+                          }
+                        >
+                          <span>Location:</span> <span>{e?.location}</span>
+                        </li>
+                        {closeApplication === true ? (
+                          <div className={"text-center py-3"}>
+                            Application Process is Closed
+                          </div>
+                        ) : (
+                          <>
+                            <li
+                              className={
+                                "list-unstyled d-flex justify-content-between py-0 fw-normal"
+                              }
+                            >
+                              <span>Required Volunteers:</span>
+                            </li>
+                            <li className={"list-unstyled"}>
+                              <VolunteerPositionLink
+                                positionName="Drivers"
+                                positionsLeft={e?.drivers_left}
+                                applicationCount={e?.driver_count}
+                                positionLimit={e?.driver_num}
+                                eventId={e?.id}
+                              />
+                            </li>
+                            <li className={"list-unstyled"}>
+                              <VolunteerPositionLink
+                                positionName="Cooks"
+                                positionsLeft={e?.cooks_left}
+                                applicationCount={e?.cook_count}
+                                positionLimit={e?.cook_num}
+                                eventId={e?.id}
+                              />
+                            </li>
+                            <li className={"list-unstyled"}>
+                              <VolunteerPositionLink
+                                positionName="Servers"
+                                positionsLeft={e?.servers_left}
+                                applicationCount={e?.server_count}
+                                positionLimit={e?.servers_num}
+                                eventId={e?.id}
+                              />
+                            </li>
+                            {e?.dishwashers_left !== 0 ? (
+                              <li className={"list-unstyled"}>
+                                <VolunteerPositionLink
+                                  positionName="Dishwashers"
+                                  positionsLeft={e?.dishwashers_left}
+                                  applicationCount={e?.dishwasher_count}
+                                  positionLimit={e?.dishwashers_num}
+                                  eventId={e?.id}
+                                />
+                              </li>
+                            ) : null}
+                            {e?.photographers_left !== 0 ||
+                            e?.photographer_count >= 3 ? (
+                              <li className={"list-unstyled"}>
+                                <VolunteerPositionLink
+                                  positionName="Photographers"
+                                  positionsLeft={e?.photographers_left}
+                                  applicationCount={e?.photographer_count}
+                                  positionLimit={e?.photographers_num}
+                                  eventId={e?.id}
+                                />
+                              </li>
+                            ) : null}
+                          </>
+                        )}
+                      </ul>
+                    </Container>
+                  </Container>
+                </Container>
+              </div>
+            </Col>
+          );
+        })}
+      </Container>
+    );
 }
 
 function TopVolunteers({ volunteers }) {

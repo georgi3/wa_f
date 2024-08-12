@@ -19,7 +19,7 @@ export default function VolunteeringFutureEvent({ vEvent, dateTimeDifference, cl
                 </div>
             </Container>
             <Container fluid>
-                <Container>
+                <Container className={"py-5"}>
                     <Row className={"d-flex flex-row flex-sm-row-reverse"}>
                         <Col  sm={12} lg={6} className={"py-5"}>
                             <Container className={"d-flex justify-content-center"}>
