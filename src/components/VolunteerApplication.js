@@ -4,6 +4,7 @@ import {useAuth} from "../context/AuthContext";
 import {useLocation} from "react-router-dom";
 import NotAuthenticatedPrompt from "./NotAuthenticatedPromt";
 import {apiCall} from "../utils/apiUtils";
+import {isWithinServiceArea, getServiceAreaMessage} from "../utils/postalCodeUtils";
 import { Helmet } from 'react-helmet';
 
 function VolunteerNotice(){
@@ -45,6 +46,7 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
     const [phoneError, setPhoneError] = useState('');
     const [addressError, setAddressError] = useState('');
     const [zipCodeError, setZipCodeError] = useState('');
+    const [zipCodeServiceError, setZipCodeServiceError] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [errorCarType, setCarTypeError] = useState('');
     const location = useLocation();
@@ -97,13 +99,22 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
         return true;
     };
 
-    const validateZipCode = () => {
-        const zipCodeRegex = /^[A-Za-z0-9]{3} [A-Za-z0-9]{3}$/;
-        if (positionName === 'Cook' && !zipCode.match(zipCodeRegex)) {
+    const validateZipCode = (value = zipCode) => {
+        const currentZipCode = value || zipCode;
+        const zipCodeRegex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
+        if (positionName === 'Cook' && !RegExp(zipCodeRegex).exec(currentZipCode)) {
             setZipCodeError('Invalid postal code. Format should be XXX XXX.');
             return false;
         }
         setZipCodeError('');
+        
+        // Check if postal code is within service area
+        if (positionName === 'Cook' && RegExp(zipCodeRegex).exec(currentZipCode) && !isWithinServiceArea(currentZipCode)) {
+            setZipCodeServiceError(`This postal code appears to be outside our service area. ${getServiceAreaMessage()}`);
+            return false;
+        }
+        setZipCodeServiceError('');
+        
         return true;
     };
 
@@ -234,12 +245,18 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
                                 type="text"
                                 value={zipCode}
                                 onChange={e => {
-                                    setZipCode(e.target.value);
-                                    validateZipCode();
+                                    const newValue = e.target.value;
+                                    setZipCode(newValue);
+                                    validateZipCode(newValue);
                                 }}
-                                isInvalid={!!zipCodeError}
+                                isInvalid={!!zipCodeError || !!zipCodeServiceError}
                                 required/>
-                            <Form.Control.Feedback type="invalid">{zipCodeError}</Form.Control.Feedback>
+                            <Form.Control.Feedback type="invalid">
+                                {zipCodeError || zipCodeServiceError}
+                            </Form.Control.Feedback>
+                            <Form.Text className="text-muted">
+                                {!zipCodeError && !zipCodeServiceError && "We serve areas close to Berri-UQAM station."}
+                            </Form.Text>
                         </Form.Group>
                         <Form.Group>
                             <Form.Label className="mb-0">Will you drop off the food? </Form.Label>
@@ -259,10 +276,10 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button className="btn btn-outline-light text-danger" onClick={onClose}>
+                <Button variant="outline-primary" onClick={onClose}>
                     Close
                 </Button>
-                <Button className="btn-outline-light" onClick={handleSubmit}>
+                <Button variant="primary" onClick={handleSubmit}>
                     Apply
                 </Button>
                 {errorMessage &&

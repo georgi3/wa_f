@@ -26,15 +26,15 @@ export default function PostNewsletterScreen (){
     return(
         <>
             <MyNavbar />
-            <div class="newsletter-wrapper">
+            <div className="newsletter-wrapper">
             <Container className={"post-newsletter"}>
                 <Container className={"little-box"}>
                     <div className={"newsletter-left-part"}>
                         <ImageLoader className={"newsletter-image"} src={img1} alt={"People lining up for food."} />
                     </div>
                     <div className={"newsletter-right-part"}>
-                        <h3 class="animation" ref={(el)=>textRefs.current[0]=el}>Thank you for registering to our newsletter!</h3>
-                        <p class="animation" ref={(el)=>textRefs.current[1]=el}>Stay tuned for updates on our latest events, fundraisers, and volunteering opportunities.</p>
+                        <h3 className="animation" ref={(el)=>textRefs.current[0]=el}>Thank you for registering to our newsletter!</h3>
+                        <p className="animation" ref={(el)=>textRefs.current[1]=el}>Stay tuned for updates on our latest events, fundraisers, and volunteering opportunities.</p>
                     </div>
                 </Container>
             </Container>

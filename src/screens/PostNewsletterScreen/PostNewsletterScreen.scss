@@ -48,7 +48,7 @@
            
 
             .newsletter-image {
-                height: fill;
+                height: stretch;
                 max-height: 450px;
                 object-fit: cover;
                 
@@ -110,7 +110,7 @@
                 justify-content: center;
                 align-items: center;
 
-                width: fill;
+                width: stretch;
 
                 gap: 10px;
 
