@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/react/static/css/main.0412d9cc.css",
-    "main.js": "/static/react/static/js/main.4a1912a0.js",
+    "main.css": "/static/react/static/css/main.aaf83bf2.css",
+    "main.js": "/static/react/static/js/main.35bf1a94.js",
     "static/js/592.bf6ca574.chunk.js": "/static/react/static/js/592.bf6ca574.chunk.js",
     "static/media/donation.mp4": "/static/react/static/media/donation.1fbb23410b5eba164a66.mp4",
     "static/media/3.mp4": "/static/react/static/media/3.4789c1132cb7f6776e7a.mp4",
@@ -24,7 +24,7 @@
     "static/media/slide3.jpg": "/static/react/static/media/slide3.ed138b47c6a1175edc18.jpg",
     "static/media/landing-page-pic2.png": "/static/react/static/media/landing-page-pic2.ee0a5805de4f14bc9e2c.png",
     "static/media/clothesDonation.png": "/static/react/static/media/clothesDonation.50f69402c95354e3eeb4.png",
-    "static/media/NexaBold.ttf.svg": "/static/react/static/media/NexaBold.ttf.95ad094f600fe7cacf52.svg",
+    "static/media/NexaBold.ttf.svg": "/static/react/static/media/NexaBold.ttf.26ab122bdc9d7c6d904f.svg",
     "static/media/1.webp": "/static/react/static/media/1.092e5952574f80a4da31.webp",
     "static/media/cook.webp": "/static/react/static/media/cook.21e80c9c4cfa23acf3be.webp",
     "static/media/4.webp": "/static/react/static/media/4.84c181e4ddaf8617878f.webp",
@@ -39,20 +39,20 @@
     "static/media/revicons.eot": "/static/react/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/static/react/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/karina.jpeg": "/static/react/static/media/karina.fdf78566455e18f486b5.jpeg",
-    "static/media/investQC.svg": "/static/react/static/media/investQC.efbec7c4126a0ff585f3544f71402b0a.svg",
+    "static/media/investQC.svg": "/static/react/static/media/investQC.728f5cd18ff0a372f70a131d0f8c0205.svg",
     "static/media/mcgill.svg": "/static/react/static/media/mcgill.78b2ac0084dfb66c68d710699b22a3b5.svg",
     "static/media/jabbott.svg": "/static/react/static/media/jabbott.39c6acdbe53e1f8641cba47bd2a00448.svg",
     "static/media/revicons.woff": "/static/react/static/media/revicons.e8746a624ed098489406.woff",
-    "static/media/concordia.svg": "/static/react/static/media/concordia.75a2d45ac4ee4c5633e782a18053d396.svg",
+    "static/media/concordia.svg": "/static/react/static/media/concordia.5d58dd2c2404c5f821175c4ca56fc233.svg",
     "static/media/YMCA.svg": "/static/react/static/media/YMCA.84af209acbe2272c8a2f4110ea66b6d6.svg",
-    "static/media/unknown_user_icon.svg": "/static/react/static/media/unknown_user_icon.8676d62f509ed06117e62e60dfaaff51.svg",
+    "static/media/unknown_user_icon.svg": "/static/react/static/media/unknown_user_icon.c48ec7eb69b1d8c943e63c34f5677dc8.svg",
     "index.html": "/static/react/index.html",
-    "main.0412d9cc.css.map": "/static/react/static/css/main.0412d9cc.css.map",
-    "main.4a1912a0.js.map": "/static/react/static/js/main.4a1912a0.js.map",
+    "main.aaf83bf2.css.map": "/static/react/static/css/main.aaf83bf2.css.map",
+    "main.35bf1a94.js.map": "/static/react/static/js/main.35bf1a94.js.map",
     "592.bf6ca574.chunk.js.map": "/static/react/static/js/592.bf6ca574.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0412d9cc.css",
-    "static/js/main.4a1912a0.js"
+    "static/css/main.aaf83bf2.css",
+    "static/js/main.35bf1a94.js"
   ]
 }
