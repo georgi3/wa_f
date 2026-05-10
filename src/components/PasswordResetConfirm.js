@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import {useParams} from "react-router-dom";
-import {Button, Container, Form} from "react-bootstrap";
+import {Link, useParams} from "react-router-dom";
+import {Alert, Button, Container, Form} from "react-bootstrap";
+import "../screens/UserAuth/AuthScreens.scss";
 
 function PasswordResetConfirm() {
     const { uid, token } = useParams();
@@ -40,35 +41,46 @@ function PasswordResetConfirm() {
 
 
     return (
-        <Container className={"d-flex justify-content-center align-content-center vh-100 vw-100 mt-5"} fluid>
-            <Form onSubmit={handleSubmit}>
-                <Container className={"py-2 text-center mb-5"}>
-                    <h1 className={"text-center lead fs-2 text-primary"}>Reset your password</h1>
-                </Container>
-                <Form.Group className="mb-3">
-                    <Form.Control
-                        type="password"
-                        placeholder="New password"
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                    />
-                </Form.Group>
+        <section className="auth-screen">
+            <div className="auth-screen-content">
+                <Form onSubmit={handleSubmit} className="auth-card auth-form">
+                    <div className="auth-card-body">
+                        <Link className={"auth-back-link"} to={"/signin/"}>&larr; Back to sign in</Link>
+                        <Container className={"mt-4 mb-4 px-0"}>
+                            <div className={"auth-kicker"}>Secure your account</div>
+                            <h1 className={"auth-title"}>Reset your password</h1>
+                            <p className={"auth-subtitle"}>Choose a new password and confirm it below to finish the reset process.</p>
+                        </Container>
+                        <Form.Group className="mb-3" controlId="newPassword">
+                            <Form.Label>New password</Form.Label>
+                            <Form.Control
+                                type="password"
+                                placeholder="New password"
+                                value={password}
+                                onChange={e => setPassword(e.target.value)}
+                                required
+                            />
+                        </Form.Group>
 
-                <Form.Group className="mb-3">
-                    <Form.Control
-                        type="password"
-                        placeholder="Confirm new password"
-                        value={confirmPassword}
-                        onChange={e => setConfirmPassword(e.target.value)}
-                    />
-                </Form.Group>
-                <Container className={"d-flex justify-content-center align-content-center"}>
-                    <Button variant="info" type="submit">Confirm Password Reset</Button>
-                </Container>
-                {message && <p className={"text-success"}>{message}</p>}
-                {errorMessage && <p className={'text-danger'}>{errorMessage}</p>}
-            </Form>
-        </Container>
+                        <Form.Group className="mb-4" controlId="confirmNewPassword">
+                            <Form.Label>Confirm new password</Form.Label>
+                            <Form.Control
+                                type="password"
+                                placeholder="Confirm new password"
+                                value={confirmPassword}
+                                onChange={e => setConfirmPassword(e.target.value)}
+                                required
+                            />
+                        </Form.Group>
+                        <div className={"d-flex flex-column gap-3"}>
+                            <Button className="auth-primary-btn" type="submit">Confirm Password Reset</Button>
+                        </div>
+                        {message && <Alert className="auth-feedback auth-feedback--success border-0">{message}</Alert>}
+                        {errorMessage && <Alert className="auth-feedback auth-feedback--error border-0">{errorMessage}</Alert>}
+                    </div>
+                </Form>
+            </div>
+        </section>
     );
 }
 

@@ -1,21 +1,27 @@
 import {Link} from "react-router-dom";
 import {Container} from "react-bootstrap";
 import React from "react";
+import "../screens/UserAuth/AuthScreens.scss";
 
 export default function NotAuthenticatedPrompt({ prompt, state }) {
     return (
-        <Container className={"bg-info p-5 text-center rounded"}>
-            <h2 className={"text-white mb-4"}>Join Us!</h2>
-            <p className={"lead text-light mb-4"}>
+        <section className="auth-screen auth-screen--compact">
+            <Container className="auth-access-card text-center">
+                <div className="auth-access-eyebrow">Members only</div>
+                <h2 className="auth-access-title">Join Us!</h2>
+                <p className="auth-access-copy">
                 { prompt }
-            </p>
-            <Link to={"/signup"} state={state} className={"btn btn-light fw-bold my-2"}>
-                Sign Up Now
-            </Link>
-            <br/>
-            <Link to={"/signin"} state={state} className={"btn btn-light fw-light my-2"}>
-                Already have an account?
-            </Link>
-        </Container>
+                </p>
+                <div className="auth-access-actions">
+                    <Link to={"/signup"} state={state} className={"btn auth-primary-btn"}>
+                        Sign Up Now
+                    </Link>
+                    <Link to={"/signin"} state={state} className={"btn auth-secondary-btn"}>
+                        Already have an account?
+                    </Link>
+                </div>
+                <p className="auth-access-support">Create an account or sign in to continue where you left off.</p>
+            </Container>
+        </section>
     );
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import {Button, Container, Form} from "react-bootstrap";
+import {Alert, Button, Container, Form} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import "./AuthScreens.scss";
 
 
 function RequestPasswordReset() {
@@ -21,37 +22,40 @@ function RequestPasswordReset() {
     };
 
     return (
-        <section className={"waves-bg-primary vh-100"}>
-            <div className={"row d-flex justify-content-center align-items-center h-100 m-0"}>
-                <div className={"col-12 col-md-8 col-lg-6 col-xl-5"}>
-                    <Form  onSubmit={handleSubmit} className={"card bg-dark text-white"}>
-                        <div className="card-body p-5">
-                            <Container className={"py-5 my-3 text-center"}>
-                                <h1 className={"text-light lead fs-1"}>Request Password Reset</h1>
-                            </Container>
-                            <Form.Group className="my-4 py-2">
+        <section className={"waves-bg-primary auth-screen"}>
+            <div className="auth-screen-content">
+                <Form onSubmit={handleSubmit} className={"auth-card auth-form"}>
+                    <div className="auth-card-body">
+                        <Link className={"auth-back-link"} to={"/signin/"}>&larr; Back to sign in</Link>
+                        <Container className={"mt-4 mb-4 px-0"}>
+                            <div className={"auth-kicker"}>Recover your account</div>
+                            <h1 className={"auth-title"}>Request password reset</h1>
+                            <p className={"auth-subtitle"}>Enter the email address tied to your account and we will send you reset instructions.</p>
+                        </Container>
+                        <Form.Group className="mb-4" controlId="resetEmail">
+                            <Form.Label>E-mail</Form.Label>
                                 <Form.Control
                                     type="email"
-                                    placeholder="Enter your email"
+                                    placeholder="you@community.org"
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
+                                    required
                                 />
-                            </Form.Group>
-                            <Container className={"d-flex justify-content-center align-content-center pt-3"}>
-                                <Button className={"btn-outline-light btn-lg px-5"} type={"submit"}>
-                                    Reset Password
-                                </Button>
-                            </Container>
-                            {feedback && <p>{feedback}</p>}
-                            <Container>
-                                <p className={"text-center py-3 text-light"}>
-                                    <Link to={"/signin/"} className={"fw-semibold text-light"}>Back to Login</Link> &nbsp;| &nbsp;
-                                    <Link to={"/signup/"} className={"fw-semibold text-light"}>Create an account</Link>
-                                </p>
-                            </Container>
+                        </Form.Group>
+                        <div className={"d-flex flex-column gap-3"}>
+                            <Button className={"auth-primary-btn"} type={"submit"}>
+                                Reset Password
+                            </Button>
                         </div>
-                    </Form>
-                </div>
+                        {feedback && <Alert className="auth-feedback auth-feedback--success border-0">{feedback}</Alert>}
+                        <Container className={"auth-footer-links mt-4 px-0"}>
+                            <p className={"text-center text-muted"}>
+                                <Link to={"/signin/"} className={"fw-semibold"}>Back to Login</Link> &nbsp;| &nbsp;
+                                <Link to={"/signup/"} className={"fw-semibold"}>Create an account</Link>
+                            </p>
+                        </Container>
+                    </div>
+                </Form>
             </div>
         </section>
     );

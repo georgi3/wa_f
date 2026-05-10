@@ -78,11 +78,11 @@ export default function SignUpScreen(){
 
     return (
         <section className={"waves-bg-primary auth-screen"}>
-            <div className={"w-100 d-flex justify-content-center"}>
+            <div className={"auth-screen-content"}>
                 <Form onSubmit={handleSubmit} className={"auth-card auth-form"} validated={validated}>
                     <div className="auth-card-body">
-                        <a className={"text-muted text-decoration-none"} href={"/"}>&larr; Go back to WelfareAvenue</a>
-                        <Container className={"mt-4 mb-4"}>
+                        <a className={"auth-back-link"} href={"/"}>&larr; Go back to WelfareAvenue</a>
+                        <Container className={"mt-4 mb-4 px-0"}>
                             <div className={"auth-kicker"}>Join the movement</div>
                             <h1 className={"auth-title"}>Create your account</h1>
                             <p className={"auth-subtitle"}>Volunteer, track your applications, and stay in the loop.</p>
