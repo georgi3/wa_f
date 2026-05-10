@@ -31,10 +31,8 @@ function VolunteerNotice(){
 
 function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventId }) {
     const { user, updateUser } = useAuth();
-    const [fullName, setFullName] = useState(
-        (user?.firstName) ? (user.firstName + " " + user.lastName) : ''
-    );
-    const [email, setEmail] = useState(user?.email || '');
+    const fullName = user?.firstName ? `${user.firstName} ${user.lastName}` : '';
+    const email = user?.email || '';
     const [phone, setPhone] = useState(user?.phone || '');
     const [organization, setOrganization] = useState(user?.organization || '');
     const [address, setAddress] = useState(user?.address || '');
@@ -49,6 +47,7 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
     const [zipCodeServiceError, setZipCodeServiceError] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [errorCarType, setCarTypeError] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const location = useLocation();
     const positionName = positionNamePlural?.slice(0, -1);
     useEffect(() => {
@@ -63,12 +62,12 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
             // If position is Cooks, address becomes mandatory
             setAddress(''); // Resetting
         }
-    }, [positionName]);
+    }, [positionName, address]);
     useEffect(() => {
         if(positionName === 'Cook' && !zipCode) {
             setZipCode(''); // Resetting
         }
-    }, [positionName]);
+    }, [positionName, zipCode]);
 
     const validatePhone = () => {
         const phoneRegex = /^[0-9-. ]{1,12}$/;
@@ -123,8 +122,10 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
             return;
         }
         try {
+            setErrorMessage('');
+            setIsSubmitting(true);
             await apiCall(`${process.env.REACT_APP_API_URL}/api/users/apply`, 'POST', {
-                'Authorization': `Bearer  ${user?.token}`
+                'Authorization': `Bearer ${user?.token}`
             }, {
                 event_id: eventId,
                 user_id: user.id,
@@ -144,30 +145,33 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
                 carType: carType,
                 zipCode: zipCode
             });
-
-            window.gtag('event', 'volunteer-signup' , { 'event_category': 'engagement', 'event_label': 'volunteer-signup', 'value': '1' });
+            if (window.gtag) {
+                window.gtag('event', 'volunteer-signup' , { 'event_category': 'engagement', 'event_label': 'volunteer-signup', 'value': '1' });
+            }
         } catch (error) {
             console.error(error.message || error);
             setErrorMessage(error.message || 'Unknown error');
+        } finally {
+            setIsSubmitting(false);
         }
     };
     if (isApplicationSubmitted) {
         return (
-            <Modal show={isOpen} onHide={onClose} centered>
+            <Modal show={isOpen} onHide={onClose} centered contentClassName="volunteer-modal">
                 <VolunteerNotice />
             </Modal>
         );
     }
     if (!user) {
         return (
-            <Modal show={isOpen} onHide={onClose} centered>
+            <Modal show={isOpen} onHide={onClose} centered contentClassName="volunteer-modal">
                 <NotAuthenticatedPrompt state={{from: `${location.pathname}`}} prompt={"To volunteer for this event, please sign up first. We promise it's a quick process!"}  />
             </Modal>
         );
     }
 
     return (
-        <Modal show={isOpen} onHide={onClose} centered>
+        <Modal show={isOpen} onHide={onClose} centered contentClassName="volunteer-modal">
             <Modal.Header closeButton>
                 <Modal.Title>Volunteer Application</Modal.Title>
             </Modal.Header>
@@ -279,8 +283,8 @@ function VolunteerApplicationModal({ isOpen, onClose, positionNamePlural, eventI
                 <Button variant="outline-primary" onClick={onClose}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={handleSubmit}>
-                    Apply
+                <Button variant="primary" onClick={handleSubmit} disabled={isSubmitting}>
+                    {isSubmitting ? "Submitting..." : "Apply"}
                 </Button>
                 {errorMessage &&
                     <div className="mt-3 w-100">

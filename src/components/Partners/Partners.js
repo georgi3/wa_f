@@ -1,7 +1,7 @@
 import React from "react";
 import {Container, Col, Row} from "react-bootstrap";
 
-import './Partners.css'
+import "./Partners.scss";
 
 export function Partners({ partners }) {
     return (

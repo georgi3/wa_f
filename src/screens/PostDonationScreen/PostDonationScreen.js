@@ -1,9 +1,9 @@
 import React from "react";
 import {Container} from "react-bootstrap";
-import './PostDonationScreen.scss';
+import "../PostActionScreen.scss";
 import MyNavbar from "../../components/Navbar";
 import Footer from "../../components/Footer/Footer";
-import ImageLoader from "../../components/ImageLoader";
+import PostActionLayout from "../../components/PostActionLayout";
 import img1 from '../../assets/images/landingPage/landing-page-pic1.jpg';
 import { faFacebook, faInstagram, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,16 +16,11 @@ export default function PostDonationScreen (){
     return(
         <>
             <MyNavbar />
-            <Container className={"post-donation"}>
-                <Container className={"little-box"}>
-                    <div className={"donation-left-part"}>
-                        <ImageLoader className={"donation-image"} src={img1} alt={"People lining up for food."} />
-                    </div>
-                    <div className={"donation-right-part"}>
-                        <h3>Thank you for your generous donation.</h3>
-                        <p>Your contribution brings us closer to a world where everyone can access the necessary resources to thrive.</p>
-                        <Container className={"share-donation"}>
-                            <Container className={"social-media-icons"}>
+            <PostActionLayout imageSrc={img1} imageAlt={"People lining up for food."}>
+                <h3 className="post-action__title">Thank you for your generous donation.</h3>
+                <p className="post-action__text">Your contribution brings us closer to a world where everyone can access the necessary resources to thrive.</p>
+                <Container className="post-action__share">
+                    <Container className="post-action__social-icons">
                                 <a href={"https://www.facebook.com/sharer/sharer.php?u=https://welfareavenue.com&quote=Just+made+a+donation+through+WelfareAvenue!+Feels+amazing+to+give+back+and+support+such+a+great+cause.+Join+me+in+making+a+difference+today!+%F0%9F%8C%9F+%23GivingBack+%23WelfareAvenue"} target={"_blank"} rel={"noreferrer"}>
                                     <i className={"fab fa-facebook"}><FontAwesomeIcon icon={faFacebook} /></i>
                                 </a>
@@ -38,11 +33,9 @@ export default function PostDonationScreen (){
                                 <a href={"https://x.com/intent/post?text=Just+made+a+donation+through+WelfareAvenue!+Feels+amazing+to+give+back+and+support+such+a+great+cause.+Join+me+in+making+a+difference+today!+%F0%9F%8C%9F+%23GivingBack+%23WelfareAvenue"} target={"_blank"} rel={"noreferrer"}>
                                     <i className={"fab fa-twitter"}><FontAwesomeIcon icon={faTwitter} /></i>
                                 </a>
-                            </Container>
-                        </Container>
-                    </div>
+                    </Container>
                 </Container>
-            </Container>
+            </PostActionLayout>
             <Footer />
         </>
     )

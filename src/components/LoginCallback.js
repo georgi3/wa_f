@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 import { useAuth } from "../context/AuthContext";
 import {processUserData} from "../utils/apiUtils";
+import "../screens/UserAuth/AuthScreens.scss";
 
 async function fetchUserProfile(accessToken) {
     const endpoint = `${process.env.REACT_APP_API_URL}/api/users/profile`;
@@ -12,6 +13,7 @@ async function fetchUserProfile(accessToken) {
 export default function LoginCallback() {
     const { login } = useAuth();
     const [token, setToken] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -34,12 +36,29 @@ export default function LoginCallback() {
                     navigate(returnUrl);
                 } catch (error) {
                     console.error('Error fetching user profile:', error);
+                    setErrorMessage('We could not complete your login. Please try again.');
                 }
             }
             getUserProfile();
         }
-    }, [token, navigate]);
-    // Add a loader instead
-    return <div>Processing login...</div>;
+    }, [token, navigate, login]);
+    if (errorMessage) {
+        return (
+            <div className="auth-loader">
+                <div>
+                    <h2>Login failed</h2>
+                    <p>{errorMessage}</p>
+                </div>
+            </div>
+        );
+    }
+    return (
+        <div className="auth-loader">
+            <div>
+                <h2>Processing login...</h2>
+                <p>Please wait while we finish signing you in.</p>
+            </div>
+        </div>
+    );
 }
 

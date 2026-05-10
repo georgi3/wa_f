@@ -1,0 +1,99 @@
+@font-face {
+    font-family: "NexaBold";
+    src: url("../assets/fonts/NexaBold.ttf.woff") format("woff"),
+        url("../assets/fonts/NexaBold.ttf.svg#NexaBold") format("svg"),
+        url("../assets/fonts/NexaBold.ttf.eot"),
+        url("../assets/fonts/NexaBold.ttf.eot?#iefix") format("embedded-opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.post-action {
+    padding: 10% 0;
+
+    .post-action__box {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+        padding: 0;
+        background: #fff;
+    }
+
+    .post-action__media {
+        width: 40%;
+        max-height: 450px;
+        overflow: hidden;
+    }
+
+    .post-action__image {
+        height: stretch;
+        max-height: 450px;
+        object-fit: cover;
+    }
+
+    .post-action__content {
+        width: 60%;
+        padding: 30px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .post-action__title,
+    .post-action__text {
+        font-family: "NexaBold";
+        margin-bottom: 10px;
+    }
+
+    .post-action__title {
+        font-size: 1.5em;
+        padding: 20px 0;
+    }
+
+    .post-action__text {
+        font-size: 1em;
+    }
+
+    .post-action__share .post-action__social-icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 30px 0;
+
+        a {
+            padding: 10px 20px;
+            width: 25%;
+            text-align: center;
+            border-radius: 5px;
+            background-color: #5e3b6c;
+
+            &:hover {
+                background-color: #462255;
+            }
+
+            i {
+                color: #fff;
+                font-size: 1.5em;
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .post-action__box {
+            flex-direction: column;
+        }
+
+        .post-action__media {
+            width: 100%;
+            max-height: 200px;
+        }
+
+        .post-action__content {
+            width: 100%;
+        }
+    }
+}

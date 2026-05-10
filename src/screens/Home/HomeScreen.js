@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {faHouse} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-import "./HomeScreen.css";
+import "./HomeScreen.scss";
 
 import MyNavbar from "../../components/Navbar";
 import {UncontrolledCarousel} from "../../components/UncontrolledCarousel";

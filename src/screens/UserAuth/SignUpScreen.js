@@ -17,7 +17,10 @@ export default function SignUpScreen(){
     const [confirmPassword, setConfirmPassword] = useState(null);
     const [passwordsMatch, setPasswordsMatch] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
-    const setValidated = useState(false)[1];
+    const [validated, setValidated] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirm, setShowConfirm] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -53,6 +56,8 @@ export default function SignUpScreen(){
 
     const handleRegister = async (event) => {
         event.preventDefault();
+        setErrorMessage('');
+        setIsSubmitting(true);
         try {
             const data = await apiCall(`${process.env.REACT_APP_API_URL}/api/users/register`, 'POST', {}, {
                 'first_name': firstName,
@@ -66,110 +71,115 @@ export default function SignUpScreen(){
         } catch (error) {
             console.error('Error logging in:', error.message || error);
             setErrorMessage(error.message || 'Unknown error');
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
     return (
-        <section className={"waves-bg-primary vh-100"}>
-            <div className={"row d-flex justify-content-center align-items-center h-100 m-0"}>
-                <div className={"col-12 col-md-8 col-lg-6 col-xl-5 my-3"}>
-                    <Form  onSubmit={handleSubmit} className={"card bg-dark text-white"}>
-                        <div className="card-body p-5 mx-3">
-                            <a className={"text-light"} href={"/"}>Go back to WelfareAvenue</a>
-                            <Container className={"py-5 my-3 text-center"}>
-                                <h1 className={"text-light lead fs-1"}>Join our Community!</h1>
-                            </Container>
-                            {errorMessage && <Alert className={"bg-light"}>
-                                <span className={"text-danger"}>{errorMessage}</span>
-                            </Alert>}
-                            <Form.Group className={"form-outline mb-4"}
-                                        controlId={"formRegistrationFName"}>
-                                <Form.Label className={"text-light lead fs-6 px-3"}>
-                                    First Name
-                                </Form.Label>
-                                <Form.Control
-                                            className={"form-control-lg"}
-                                            type={"text"}
-                                            placeholder={"Enter your first name"}
-                                            onChange={(e) => setFirstName(e.target.value)}
-                                            required/>
-                            </Form.Group>
-                            <Form.Group className={"form-outline mb-4"}
-                                        controlId={"formRegistrationLName"}>
-                                <Form.Label className={"text-light lead fs-6 px-3"}>
-                                    Last Name
-                                </Form.Label>
-                                <Form.Control
-                                            className={"form-control-lg"}
-                                            type={"text"}
-                                            placeholder={"Enter your last name"}
-                                            onChange={(e) => setLastName(e.target.value)}
-                                            required/>
-                            </Form.Group>
-                            <Form.Group className={"form-outline mb-4"}
-                                        controlId={"formRegistrationEmail"}>
-                                <Form.Label className={"text-light lead fs-6 px-3"}>
-                                    E-mail
-                                </Form.Label>
-                                <Form.Control
-                                            className={"form-control-lg"}
-                                            type={"email"}
-                                            placeholder={"Enter email"}
-                                            onChange={(e) => setEmail(e.target.value)}
+        <section className={"waves-bg-primary auth-screen"}>
+            <div className={"w-100 d-flex justify-content-center"}>
+                <Form onSubmit={handleSubmit} className={"auth-card auth-form"} validated={validated}>
+                    <div className="auth-card-body">
+                        <a className={"text-muted text-decoration-none"} href={"/"}>&larr; Go back to WelfareAvenue</a>
+                        <Container className={"mt-4 mb-4"}>
+                            <div className={"auth-kicker"}>Join the movement</div>
+                            <h1 className={"auth-title"}>Create your account</h1>
+                            <p className={"auth-subtitle"}>Volunteer, track your applications, and stay in the loop.</p>
+                        </Container>
+                        {errorMessage && (
+                            <Alert className={"auth-alert"}>
+                                <span>{errorMessage}</span>
+                            </Alert>
+                        )}
+                        <Form.Group className={"mb-3"} controlId={"formRegistrationFName"}>
+                            <Form.Label>First Name</Form.Label>
+                            <Form.Control
+                                type={"text"}
+                                placeholder={"Enter your first name"}
+                                onChange={(e) => setFirstName(e.target.value)}
                                 required/>
-                            </Form.Group>
-                            <Form.Group className={"form-outline mb-4"}
-                                        controlId={"formRegistrationPassword"}>
-                                <Form.Label className={"text-light lead fs-6 px-3"}>
-                                    Password
-                                </Form.Label>
+                        </Form.Group>
+                        <Form.Group className={"mb-3"} controlId={"formRegistrationLName"}>
+                            <Form.Label>Last Name</Form.Label>
+                            <Form.Control
+                                type={"text"}
+                                placeholder={"Enter your last name"}
+                                onChange={(e) => setLastName(e.target.value)}
+                                required/>
+                        </Form.Group>
+                        <Form.Group className={"mb-3"} controlId={"formRegistrationEmail"}>
+                            <Form.Label>E-mail</Form.Label>
+                            <Form.Control
+                                type={"email"}
+                                placeholder={"you@community.org"}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required/>
+                        </Form.Group>
+                        <Form.Group className={"mb-3"} controlId={"formRegistrationPassword"}>
+                            <Form.Label>Password</Form.Label>
+                            <div className={"auth-input-group"}>
                                 <Form.Control
-                                            className={"form-control-lg"}
-                                            type={"password"}
-                                            placeholder={"Enter password"}
-                                            onChange={(e) => setPassword(e.target.value)}
-                                            minLength={8}
-                                            required/>
-                            </Form.Group>
-                            <Form.Group className={"form-outline mb-4"}
-                                        controlId={"formRegistrationPassword2"}>
-                                <Form.Label className={"text-light lead fs-6 px-3"}>
-                                    Repeat Password
-                                </Form.Label>
+                                    type={showPassword ? "text" : "password"}
+                                    placeholder={"Enter password"}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    minLength={8}
+                                    required/>
+                                <Button
+                                    variant="outline-primary"
+                                    className={"auth-secondary-btn"}
+                                    type="button"
+                                    onClick={() => setShowPassword((prev) => !prev)}>
+                                    {showPassword ? "Hide" : "Show"}
+                                </Button>
+                            </div>
+                        </Form.Group>
+                        <Form.Group className={"mb-4"} controlId={"formRegistrationPassword2"}>
+                            <Form.Label>Repeat Password</Form.Label>
+                            <div className={"auth-input-group"}>
                                 <Form.Control
-                                            className={"form-control-lg"}
-                                            type={"password"}
-                                            placeholder={"Repeat your password"}
-                                            onChange={(e) => setConfirmPassword(e.target.value)}
-                                            minLength={8}
-                                            required/>
-                                {!passwordsMatch && <p className={"danger text-danger"}>
+                                    type={showConfirm ? "text" : "password"}
+                                    placeholder={"Repeat your password"}
+                                    onChange={(e) => setConfirmPassword(e.target.value)}
+                                    minLength={8}
+                                    required/>
+                                <Button
+                                    variant="outline-primary"
+                                    className={"auth-secondary-btn"}
+                                    type="button"
+                                    onClick={() => setShowConfirm((prev) => !prev)}>
+                                    {showConfirm ? "Hide" : "Show"}
+                                </Button>
+                            </div>
+                            {!passwordsMatch && (
+                                <p className={"text-danger mt-2"}>
                                     Passwords do not match.
                                 </p>
-                                }
-                            </Form.Group>
-                            <Container className={"d-flex justify-content-center align-content-center align-items-center flex-column my-3"}>
-                                <Button className={"btn-outline-light btn-lg px-5 my-3"}
-                                        type={"submit"}>
-                                    SIGN UP
+                            )}
+                        </Form.Group>
+                        <Container className={"d-flex flex-column gap-3"}>
+                            <Button className={"auth-primary-btn"} type={"submit"} disabled={isSubmitting}>
+                                {isSubmitting ? "Creating account..." : "Create account"}
+                            </Button>
+                            {socialMedias.map((socialMedia) => (
+                                <Button
+                                    key={socialMedia.name}
+                                    variant="outline-primary"
+                                    className={"auth-secondary-btn"}
+                                    href={`${socialMedia.href}?next=${sessionStorage.getItem('returnUrl') || '/'}`}
+                                    target={socialMedia.target}>
+                                    <FontAwesomeIcon icon={socialMedia.icon} size="lg" />
+                                    &nbsp;&nbsp;Continue with {socialMedia.name}
                                 </Button>
-                                {
-                                socialMedias.map((socialMedia) => 
-                                    <Button className={"btn-outline-light btn-lg px-5 my-3"}
-                                        href={`${socialMedia.href}?next=${sessionStorage.getItem('returnUrl') || '/'}`}
-                                        target={socialMedia.target}>
-                                        <FontAwesomeIcon icon={socialMedia.icon} className={socialMedia.color} size="xl" />
-                                        &nbsp;&nbsp;&nbsp;SIGN UP WITH {socialMedia.name}
-                                    </Button>
-                                    )
-                                }
-                            </Container>
-                            <Container className={"mt-2"}>
-                                <p className={"text-center text-light"}>Already have an account? <Link to={"/signin"} className={"fw-semibold text-light"}>Log In Here</Link></p>
-                            </Container>
-                        </div>
-                    </Form>
-                </div>
+                            ))}
+                        </Container>
+                        <Container className={"auth-footer-links mt-4"}>
+                            <p className={"text-center text-muted"}>
+                                Already have an account? <Link to={"/signin"} className={"fw-semibold"}>Log in here</Link>
+                            </p>
+                        </Container>
+                    </div>
+                </Form>
             </div>
         </section>
     )

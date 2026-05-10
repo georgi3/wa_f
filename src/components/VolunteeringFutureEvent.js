@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {Col, Container, Row} from "react-bootstrap";
-import CountdownTimer from "./CountdownTimer";
+import EventCountdownHeader from "./EventCountdownHeader";
 import {format, parseISO} from "date-fns";
 import VolunteerPositionLink from "./VolunteerPositionLink";
 
@@ -11,13 +11,7 @@ export default function VolunteeringFutureEvent({ vEvent, dateTimeDifference, cl
 
     return (
         <>
-            <Container className={"px-0 px-lg-5"}>
-                <h1 className={" text-center py-3 mt-1 lead fs-1"}>{vEvent?.title} </h1>
-                <p className={"lead fs-3 text-center mt-5"}>Starts In:</p>
-                <div className={"text-center fs-4 lead d-flex align-content px-0"}>
-                    <CountdownTimer targetDate={dateTimeDifference} />
-                </div>
-            </Container>
+            <EventCountdownHeader title={vEvent?.title} dateTimeDifference={dateTimeDifference} />
             <Container fluid>
                 <Container className={"py-5"}>
                     <Row className={"d-flex flex-row flex-sm-row-reverse"}>

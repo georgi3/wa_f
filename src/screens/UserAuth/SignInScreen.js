@@ -14,7 +14,9 @@ export default function SignInScreen(){
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const setValidated = useState(false)[1];
+    const [validated, setValidated] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -47,6 +49,8 @@ export default function SignInScreen(){
 
     const handleLogin = async (event) => {
         event.preventDefault();
+        setErrorMessage('');
+        setIsSubmitting(true);
         try {
             const data = await apiCall(`${process.env.REACT_APP_API_URL}/api/users/login`, 'POST', {}, { 'username': email, 'password': password });
             await login(processUserData(data));
@@ -54,69 +58,76 @@ export default function SignInScreen(){
         } catch (error) {
             console.error('Error logging in:', error.message || error);
             setErrorMessage(error.message || 'Unknown error');
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
     return (
-        <section className={"waves-bg-primary vh-100"}>
-            <div className={"row d-flex justify-content-center align-items-center h-100 m-0"}>
-                <div className={"col-12 col-md-8 col-lg-6 col-xl-5"}>
-                    <Form className={"card bg-dark text-white"}
-                        onSubmit={handleSubmit}>
-                        <div className="card-body p-5">
-                            <a className={"text-light"} href={"/"}>Go back to WelfareAvenue</a>
-                            <Container className={"my-3 py-5 text-center"}>
-                                <h1 className={"text-light fw-light"}>Sign in to WelfareAvenue</h1>
-                            </Container>
-                            {errorMessage && <Alert className={"bg-light"}>
-                                <span className={"text-danger"}>{errorMessage}</span>
-                            </Alert>}
-                            <Form.Group className={"my-2 py-2"} controlId={"formSignInEmail"}>
-                                <Form.Label className={"text-light lead fs-6 px-3"}>
-                                    E-mail
-                                </Form.Label>
+        <section className={"waves-bg-primary auth-screen"}>
+            <div className={"w-100 d-flex justify-content-center"}>
+                <Form className={"auth-card auth-form"} validated={validated} onSubmit={handleSubmit}>
+                    <div className="auth-card-body">
+                        <a className={"text-muted text-decoration-none"} href={"/"}>&larr; Go back to WelfareAvenue</a>
+                        <Container className={"mt-4 mb-4"}>
+                            <div className={"auth-kicker"}>Welcome back</div>
+                            <h1 className={"auth-title"}>Sign in to WelfareAvenue</h1>
+                            <p className={"auth-subtitle"}>Continue your impact, check your volunteer status, and see what is next.</p>
+                        </Container>
+                        {errorMessage && (
+                            <Alert className={"auth-alert"}>
+                                <span>{errorMessage}</span>
+                            </Alert>
+                        )}
+                        <Form.Group className={"mb-3"} controlId={"formSignInEmail"}>
+                            <Form.Label>E-mail</Form.Label>
+                            <Form.Control
+                                type={"email"}
+                                placeholder={"you@community.org"}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required/>
+                        </Form.Group>
+                        <Form.Group className={"mb-4"} controlId={"formSignInPassword"}>
+                            <Form.Label>Password</Form.Label>
+                            <div className={"auth-input-group"}>
                                 <Form.Control
-                                    className={"py-2 w-100 form-control-lg"}
-                                    type={"text"}
-                                    placeholder={"Enter email"}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    required/>
-                            </Form.Group>
-                            <Form.Group className={"my-2 py-2"}
-                                        controlId={"formSignInPassword"}>
-                                <Form.Label className={"text-light lead fs-6 px-3"}>Password</Form.Label>
-                                <Form.Control
-                                    className={"py-2 w-100 form-control-lg"}
-                                    type={"password"}
+                                    type={showPassword ? "text" : "password"}
                                     placeholder={"Enter password"}
                                     onChange={(e) => setPassword(e.target.value)}
                                     required/>
-                            </Form.Group>
-                            <Container className={"d-flex justify-content-center align-content-center align-items-center flex-column"}>
-                                <Button className={"btn-outline-light btn-lg px-5 my-3"}
-                                        type={"submit"}>
-                                    LOGIN
+                                <Button
+                                    variant="outline-primary"
+                                    className={"auth-secondary-btn"}
+                                    type="button"
+                                    onClick={() => setShowPassword((prev) => !prev)}>
+                                    {showPassword ? "Hide" : "Show"}
                                 </Button>
-                                {
-                                socialMedias.map((socialMedia) => 
-                                    <Button className={"btn-outline-light btn-lg px-5 my-3"}
-                                        href={`${socialMedia.href}?next=${sessionStorage.getItem('returnUrl') || '/'}`}
-                                        target={socialMedia.target}>
-                                        <FontAwesomeIcon icon={socialMedia.icon} className={socialMedia.color} size="xl" />
-                                        &nbsp;&nbsp;&nbsp;SIGN IN WITH {socialMedia.name}
-                                    </Button>
-                                    )
-                                }
-                            </Container>
-                            <Container>
-                                <p className={"text-center py-3 text-light"}>
-                                    <Link to={"/password/request-reset/"} className={"fw-semibold text-light"}>Forgot password?</Link> &nbsp;| &nbsp;
-                                    <Link to={"/signup/"} className={"fw-semibold text-light"}>Create an account</Link>
-                                </p>
-                            </Container>
-                        </div>
-                    </Form>
-                </div>
+                            </div>
+                        </Form.Group>
+                        <Container className={"d-flex flex-column gap-3"}>
+                            <Button className={"auth-primary-btn"} type={"submit"} disabled={isSubmitting}>
+                                {isSubmitting ? "Logging in..." : "Log in"}
+                            </Button>
+                            {socialMedias.map((socialMedia) => (
+                                <Button
+                                    key={socialMedia.name}
+                                    variant="outline-primary"
+                                    className={"auth-secondary-btn"}
+                                    href={`${socialMedia.href}?next=${sessionStorage.getItem('returnUrl') || '/'}`}
+                                    target={socialMedia.target}>
+                                    <FontAwesomeIcon icon={socialMedia.icon} size="lg" />
+                                    &nbsp;&nbsp;Continue with {socialMedia.name}
+                                </Button>
+                            ))}
+                        </Container>
+                        <Container className={"auth-footer-links mt-4"}>
+                            <p className={"text-center text-muted"}>
+                                <Link to={"/password/request-reset/"} className={"fw-semibold"}>Forgot password?</Link> &nbsp;| &nbsp;
+                                <Link to={"/signup/"} className={"fw-semibold"}>Create an account</Link>
+                            </p>
+                        </Container>
+                    </div>
+                </Form>
             </div>
         </section>
     )

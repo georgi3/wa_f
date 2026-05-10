@@ -1,19 +1,13 @@
 import React from "react";
 import {Col, Container, Row} from "react-bootstrap";
-import CountdownTimer from "./CountdownTimer";
+import EventCountdownHeader from "./EventCountdownHeader";
 import {format, parseISO} from "date-fns";
 import {Link} from "react-router-dom";
 
 export default function FundraisingFutureEvent({ frEvent, dateTimeDifference }){
     return (
         <>
-            <Container className={"px-0 px-lg-5"}>
-                <h1 className={" text-center py-3 mt-1 lead fs-1"}>{frEvent?.title} </h1>
-                <p className={"lead fs-3 text-center mt-5"}>Starts In:</p>
-                <div className={"text-center fs-4 lead d-flex align-content px-0"}>
-                    <CountdownTimer targetDate={dateTimeDifference} />
-                </div>
-            </Container>
+            <EventCountdownHeader title={frEvent?.title} dateTimeDifference={dateTimeDifference} />
             <Container className={"py-3 my-2"}>
                 <Row className={"d-flex flex-row flex-sm-row-reverse px-0"}>
                     <Col  sm={12} lg={6} className={""}>

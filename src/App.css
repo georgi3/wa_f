@@ -51,6 +51,36 @@
   transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
+.volunteer-modal {
+  border-radius: 1rem;
+  border: 1px solid rgba(70, 34, 85, 0.15);
+  box-shadow: 0 20px 40px rgba(70, 34, 85, 0.18);
+}
+
+.volunteer-modal .modal-header {
+  border-bottom: 1px solid rgba(70, 34, 85, 0.15);
+}
+
+.volunteer-modal .modal-title {
+  color: var(--bs-primary);
+  font-weight: 600;
+}
+
+.volunteer-modal .form-control:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.2rem rgba(70, 34, 85, 0.15);
+}
+
+.volunteer-modal .btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+.volunteer-modal .btn-outline-primary {
+  color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
 
 
 

@@ -86,19 +86,36 @@ export function GalleryScreen(){
 }
 
 function Galleries(galleries, loading, error) {
-        return(
+    if (loading) {
+        return (
             <div className="w-100 d-flex justify-content-center text-center align-items-center">
-                {loading && <l-quantum size="85" speed="1.75" color="#711d94"></l-quantum>}
-                {error && <p className={"text-danger"}>{error}</p>}
-                {!loading && !galleries.length && <p className={"text-info text-center"}>No photos available</p>}
-                {galleries.map(gallery => {
-                <Accordion.Item eventKey={gallery?.name}>
-                    <Accordion.Header>{gallery?.name}</Accordion.Header>
-                    <Accordion.Body>
-                        <ImageListGallery galleryImages={gallery?.images} />
-                    </Accordion.Body>
-                </Accordion.Item>
-                })}
+                <l-quantum size="85" speed="1.75" color="#711d94"></l-quantum>
             </div>
-        )
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="w-100 d-flex justify-content-center text-center align-items-center">
+                <p className={"text-danger"}>{error}</p>
+            </div>
+        );
+    }
+
+    if (!galleries.length) {
+        return (
+            <div className="w-100 d-flex justify-content-center text-center align-items-center">
+                <p className={"text-info text-center"}>No photos available</p>
+            </div>
+        );
+    }
+
+    return galleries.map((gallery) => (
+        <Accordion.Item eventKey={gallery?.name} key={gallery?.name}>
+            <Accordion.Header>{gallery?.name}</Accordion.Header>
+            <Accordion.Body>
+                <ImageListGallery galleryImages={gallery?.images} />
+            </Accordion.Body>
+        </Accordion.Item>
+    ));
 }
